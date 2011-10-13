@@ -10,7 +10,7 @@
   <div id="header-wrapper"><div class="container clearfix">
     <header class="clearfix">
 
-      <div id="branding" class="clearfix">
+      <div id="branding" class="clearfix<?php print $branding_classes ? ' ' . $branding_classes : ''; ?>">
         <?php if ($linked_site_logo): ?>
           <div id="logo"><?php print $linked_site_logo; ?></div>
         <?php endif; ?>
@@ -28,30 +28,13 @@
       </div>
 
       <?php print render($page['header']); ?>
-      
+
       <?php if ($page['menu_bar']): ?>
         <?php print render($page['menu_bar']); ?>
       <?php endif; ?>
     </header>
   </div></div>
 
-
-
-  <?php if ($breadcrumb): ?>
-    <div id="breadcrumb-wrapper"><div class="container clearfix">
-      <section id="breadcrumb" class="clearfix">
-        <?php print $breadcrumb; ?>
-      </section>
-    </div></div>
-  <?php endif; ?>
-
-  <?php if ($messages || $page['help']): ?>
-    <div id="messages-help-wrapper"><div class="container clearfix">
-      <?php print $messages; ?>
-      <?php print render($page['help']); ?>
-    </div></div>
-  <?php endif; ?>
-  
   <?php if ($page['three_33_first'] || $page['three_33_second'] || $page['three_33_third']): ?>
     <div id="sub-panels-wrapper"><div class="container clearfix">
       <div class="three-3x33 gpanel clearfix">
@@ -69,6 +52,22 @@
   <?php endif; ?>
 
   <div id="content-wrapper"><div class="container">
+
+    <?php if ($messages || $page['help']): ?>
+      <div id="messages-help-wrapper"><div class="container clearfix">
+        <?php print $messages; ?>
+        <?php print render($page['help']); ?>
+      </div></div>
+    <?php endif; ?>
+
+    <?php if ($breadcrumb): ?>
+      <div id="breadcrumb-wrapper"><div class="container clearfix">
+        <section id="breadcrumb" class="clearfix">
+          <?php print $breadcrumb; ?>
+        </section>
+      </div></div>
+    <?php endif; ?>
+
     <div id="columns"><div class="columns-inner clearfix">
       <div id="content-column"><div class="content-inner">
 
