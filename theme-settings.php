@@ -42,6 +42,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#title' => t('Fonts'),
     '#description' => t('<h3>Fonts</h3><p>Here you can set a default font which will style all text. You can also set unique fonts for the page title, site name and slogan, and fonts for node, comment and block titles. First select the font type (Websafe or Google web font), then select the font family. You can preview Google web fonts here: <a href="!link" target="_blank">http://www.google.com/webfonts</a></p>', array('!link' => 'http://www.google.com/webfonts')),
   );
+  // base font
   $form['at']['font']['base_font_wrapper'] = array (
     '#type' => 'fieldset',
     '#title' => t('Default font'),
@@ -98,6 +99,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#default_value' => theme_get_setting('base_font_gwf'),
     '#options' => google_web_fonts_list_options(),
   );
+  // site name font
   $form['at']['font']['site_name_font_wrapper'] = array (
     '#type' => 'fieldset',
     '#title' => t('Site Name'),
@@ -154,6 +156,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#default_value' => theme_get_setting('site_name_font_gwf'),
     '#options' => google_web_fonts_list_options(),
   );
+  // slogan font
   $form['at']['font']['site_slogan_font_wrapper'] = array (
     '#type' => 'fieldset',
     '#title' => t('Site Slogan'),
@@ -210,6 +213,64 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#default_value' => theme_get_setting('site_slogan_font_gwf'),
     '#options' => google_web_fonts_list_options(),
   );
+  // main menu font
+  $form['at']['font']['main_menu_font_wrapper'] = array (
+    '#type' => 'fieldset',
+    '#title' => t('Main Menu'),
+    '#attributes' => array('class' => array('font-element-wrapper'))
+  );
+  $form['at']['font']['main_menu_font_wrapper']['main_menu_font_type'] = array (
+    '#type' => 'select',
+    '#title' => t('Type'),
+    '#options' => array (
+      '' => t('Websafe font'),
+      'gwf' => t('Google font'),
+    ),
+    '#default_value' => theme_get_setting('main_menu_font_type')
+  );
+  $form['at']['font']['main_menu_font_wrapper']['main_menu_font_container'] = array (
+    '#type' => 'container',
+    '#states' => array (
+      'visible' => array (
+        'select[name="main_menu_font_type"]' => array (
+          'value' => ''
+        )
+      )
+    )
+  );
+  $form['at']['font']['main_menu_font_wrapper']['main_menu_font_container']['main_menu_font'] = array(
+    '#type' => 'select',
+    '#title' => t('Font'),
+    '#default_value' => theme_get_setting('main_menu_font'),
+    '#options' => array(
+      'ptf-sss' => t('Candara, Trebuchet MS, Helvetica Neue, Arial, Helvetica, sans-serif'),
+      'ptf-ssl' => t('Verdana, Geneva, Arial, Helvetica, sans-serif'),
+      'ptf-a'   => t('Arial, Helvetica, sans-serif'),
+      'ptf-cc'  => t('Calibri, Candara, Arial, Helvetica, sans-serif'),
+      'ptf-m'   => t('Segoe UI, Myriad Pro, Myriad, Arial, Helvetica, sans-serif'),
+      'ptf-l'   => t('Lucida Sans Unicode, Lucida Sans, Lucida Grande, Verdana, Geneva, sans-serif'),
+      'ptf-ss'  => t('Garamond, Perpetua, Times New Roman, serif'),
+      'ptf-sl'  => t('Georgia, Baskerville, Palatino, Palatino Linotype, Book Antiqua, Times New Roman, serif'),
+      'ptf-ms'  => t('Consolas, Monaco, Courier New, Courier, monospace'),
+    ),
+  );
+  $form['at']['font']['main_menu_font_wrapper']['main_menu_font_gwf_container'] = array (
+    '#type' => 'container',
+    '#states' => array (
+      'visible' => array (
+        'select[name="main_menu_font_type"]' => array (
+          'value' => 'gwf'
+        )
+      )
+    )
+  );
+  $form['at']['font']['main_menu_font_wrapper']['main_menu_font_gwf_container']['main_menu_font_gwf'] = array(
+    '#type' => 'select',
+    '#title' => t('Font'),
+    '#default_value' => theme_get_setting('main_menu_font_gwf'),
+    '#options' => google_web_fonts_list_options(),
+  );
+  // page title font
   $form['at']['font']['page_title_font_wrapper'] = array (
     '#type' => 'fieldset',
     '#title' => t('Page Title'),
@@ -786,7 +847,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#title' => t('Textures'),
     '#description' => t('<h3>Textures</h3><p>Textures are small, semi-transparent images that tile to fill the entire background.</p>'),
   );
-  // Mono does not support box shadows, they dont work well with the overall design.
+  // AT Commerce does not support box shadows, they dont work well with the overall design.
   $form['at']['pagestyles']['textures'] = array(
     '#type' => 'fieldset',
     '#title' => t('Textures'),
@@ -846,10 +907,29 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['menu_styles'] = array(
     '#type' => 'fieldset',
+    '#title' => t('Menu Styles'),
+  );
+  $form['at']['menu_styles']['main_menu'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Main Menu Alignment'),
+    '#description' => t('<h3>Main Menu Alignment</h3>'),
+  );
+  $form['at']['menu_styles']['main_menu']['main_menu_alignment'] = array(
+    '#type' => 'radios',
+    '#title' => t('Align the main menu left, centered or to the right.'),
+    '#default_value' => theme_get_setting('main_menu_alignment'),
+    '#options' => array(
+      'mma-l' => t('Left'),
+      'mma-c' => t('Centered'),
+      'mma-r' => t('Right'),
+    ),
+  );
+  $form['at']['menu_styles']['bullets'] = array(
+    '#type' => 'fieldset',
     '#title' => t('Menu Bullets'),
     '#description' => t('<h3>Menu Bullets</h3><p>This setting allows you to customize the bullet images used on menus items. Bullet images only show on normal vertical block menus.</p>'),
   );
-  $form['at']['menu_styles']['menu_bullets'] = array(
+  $form['at']['menu_styles']['bullets']['menu_bullets'] = array(
     '#type' => 'select',
     '#title' => t('Menu Bullets'),
     '#default_value' => theme_get_setting('menu_bullets'),

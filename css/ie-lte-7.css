@@ -1,4 +1,7 @@
-/*
- * NOTICE: This is a commercial Drupal theme. Elements of this theme including this field
- * are licensed under a standard commercial license which does not permit redistribution. 
- */
+/* AT Commerce lte IE7 */
+.mma-c #menu-bar .block,
+.mma-c #menu-bar .block ul {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+}

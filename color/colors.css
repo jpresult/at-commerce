@@ -56,7 +56,8 @@ div#page {
 a:link,
 a:visited,
 a:active,
-a.active {
+a.active,
+li a.active {
   color: #3398CA;
 }
 a:hover,
@@ -162,22 +163,16 @@ a:focus {
 .poll .bar .foreground {}
 
 /* Articles */
-.article-teaser {}
-.article-title {}
 .article-teaser.article-sticky {}
 
 /* Fields */
 .field-type-image img {
   border: 1px solid #d5d5d5;
 }
-.field-type-image .field-items {}
-.field-type-image figure {}
 
 /* Comments */
-.comment {}
-.comment-title {}
-#comments .odd {}
-#comments .even {}
+.comment-inner {
+}
 
 /* Aggregator */
 #aggregator .feed-source {}

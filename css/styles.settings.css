@@ -73,8 +73,24 @@
   padding: 0 0 6px;
   text-align: center;
 }
-  
-/* Image Alignment */
+
+/* Main menu alignment */
+.mma-r #menu-bar .block {
+  float: right;
+}
+.mma-c #menu-bar .block {
+  display: table;
+  text-align: center;
+  margin: auto;
+  float: none;
+  clear: both;
+}
+.mma-c #menu-bar .block li a {
+  text-align: left;
+}
+
+
+/* Image alignment */
 .field-type-image {
   margin: 0;
   padding: 0;

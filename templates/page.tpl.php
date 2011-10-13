@@ -1,4 +1,4 @@
-<?php // Clean ?>
+<?php // AT Commerce ?>
 <div id="page-wrapper"><div id="page">
 
   <?php if($page['menu_bar_top']): ?>
@@ -54,18 +54,16 @@
   <div id="content-wrapper"><div class="container">
 
     <?php if ($messages || $page['help']): ?>
-      <div id="messages-help-wrapper"><div class="container clearfix">
+      <div id="messages-help-wrapper" class="clearfix">
         <?php print $messages; ?>
         <?php print render($page['help']); ?>
-      </div></div>
+      </div>
     <?php endif; ?>
 
     <?php if ($breadcrumb): ?>
-      <div id="breadcrumb-wrapper"><div class="container clearfix">
-        <section id="breadcrumb" class="clearfix">
-          <?php print $breadcrumb; ?>
-        </section>
-      </div></div>
+      <section id="breadcrumb" class="clearfix">
+        <?php print $breadcrumb; ?>
+      </section>
     <?php endif; ?>
 
     <div id="columns"><div class="columns-inner clearfix">
@@ -83,28 +81,26 @@
         <?php $tag = $title ? 'section' : 'div'; ?>
         <<?php print $tag; ?> id="main-content">
 
-          <?php if ($title || $primary_local_tasks || $secondary_local_tasks || $action_links): ?>
+          <?php print render($title_prefix); ?>
+          <?php if ($title && !isset($node)): ?>
             <header>
-              <?php print render($title_prefix); ?>
-              <?php if ($title): ?>
-                <h1 id="page-title"><?php print $title; ?></h1>
-              <?php endif; ?>
-              <?php print render($title_suffix); ?>
-
-              <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
-                <div id="tasks">
-                  <?php if ($primary_local_tasks): ?>
-                    <ul class="tabs primary"><?php print render($primary_local_tasks); ?></ul>
-                  <?php endif; ?>
-                  <?php if ($secondary_local_tasks): ?>
-                    <ul class="tabs secondary"><?php print render($secondary_local_tasks); ?></ul>
-                  <?php endif; ?>
-                  <?php if ($action_links): ?>
-                    <ul class="action-links"><?php print render($action_links); ?></ul>
-                  <?php endif; ?>
-                </div>
-              <?php endif; ?>
+              <h1 id="page-title"><?php print $title; ?></h1>
             </header>
+          <?php endif; ?>
+          <?php print render($title_suffix); ?>
+
+          <?php if ($primary_local_tasks || $secondary_local_tasks || $action_links): ?>
+            <div id="tasks" class="clearfix">
+              <?php if ($primary_local_tasks): ?>
+                <ul class="tabs primary clearfix"><?php print render($primary_local_tasks); ?></ul>
+              <?php endif; ?>
+              <?php if ($secondary_local_tasks): ?>
+                <ul class="tabs secondary clearfix"><?php print render($secondary_local_tasks); ?></ul>
+              <?php endif; ?>
+              <?php if ($action_links = render($action_links)): ?>
+                <ul class="action-links clearfix"><?php print $action_links; ?></ul>
+              <?php endif; ?>
+            </div>
           <?php endif; ?>
 
           <div id="content"><?php print render($page['content']); ?></div>

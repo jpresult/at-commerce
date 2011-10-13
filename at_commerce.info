@@ -114,21 +114,27 @@
   ; smartphone portrait
   settings[smartphone_portrait_media_query] = 'only screen and (max-width:320px)'
 
-  ; Fonts
+  ; Fonts - type
   settings[base_font_type]          = 'wsf'
   settings[site_name_font_type]     = 'gwf'
   settings[site_slogan_font_type]   = 'gwf'
+  settings[main_menu_font_type]     = 'wsf'
   settings[page_title_font_type]    = 'gwf'
   settings[node_title_font_type]    = 'gwf'
   settings[comment_title_font_type] = 'gwf'
   settings[block_title_font_type]   = 'gwf'
+
+  ; Fonts - family
   settings[base_font]               = 'bf-l'
-  settings[site_name_font]          = 'Droid Sans'
-  settings[site_slogan_font]        = 'Droid Sans'
-  settings[page_title_font]         = 'Droid Sans'
-  settings[node_title_font]         = 'Droid Sans'
-  settings[comment_title_font]      = 'Droid Sans'
-  settings[block_title_font]        = 'Droid Sans'
+  settings[site_name_font_gwf]      = 'Open Sans'
+  settings[site_slogan_font_gwf]    = 'Open Sans'
+  settings[main_menu_font]          = 'bf-l'
+  settings[page_title_font_gwf]     = 'Open Sans'
+  settings[node_title_font_gwf]     = 'Open Sans'
+  settings[comment_title_font_gwf]  = 'Open Sans'
+  settings[block_title_font_gwf]    = 'Open Sans'
+
+  ; Font size
   settings[font_size]               = 'fs-medium'
 
   ; Heading styles
@@ -141,22 +147,22 @@
   settings[site_slogan_shadow]    = 'sss-n'
   
   settings[page_title_case]      = 'ptc-n'
-  settings[page_title_weight]    = 'ptw-b'
+  settings[page_title_weight]    = 'ptw-n'
   settings[page_title_alignment] = 'pta-l'
   settings[page_title_shadow]    = 'pts-n'
 
   settings[node_title_case]      = 'ntc-n'
-  settings[node_title_weight]    = 'ntw-b'
+  settings[node_title_weight]    = 'ntw-n'
   settings[node_title_alignment] = 'nta-l'
   settings[node_title_shadow]    = 'nts-n'
 
   settings[comment_title_case]      = 'ctc-n'
-  settings[comment_title_weight]    = 'ctw-b'
+  settings[comment_title_weight]    = 'ctw-n'
   settings[comment_title_alignment] = 'cta-l'
   settings[comment_title_shadow]    = 'cts-n'
 
   settings[block_title_case]      = 'btc-uc'
-  settings[block_title_weight]    = 'btw-b'
+  settings[block_title_weight]    = 'btw-n'
   settings[block_title_alignment] = 'bta-l'
   settings[block_title_shadow]    = 'bts-n'
 
@@ -195,9 +201,12 @@
   ; Header layout
   settings[header_layout] = hl-l
 
-  ; Background and menu bullets
+  ; Background
   settings[body_background] = 'bb-n'
-  settings[menu_bullets]    = 'mb-dd'
+  
+  ; Menu settings
+  settings[main_menu_alignment] = 'mma-l'
+  settings[menu_bullets]        = 'mb-dd'
 
   ; Classes
   settings[extra_page_classes]      = 1

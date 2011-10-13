@@ -44,6 +44,7 @@ function at_commerce_preprocess_html(&$vars) {
     'body_background',
     'header_layout',
     'menu_bullets',
+    'main_menu_alignment',
     'image_alignment',
     'site_name_case',
     'site_name_weight',
@@ -143,6 +144,22 @@ function at_commerce_process_page(&$vars) {
   $branding_classes[] = !$vars['hide_site_name'] ? 'with-site-name' : 'site-name-hidden';
   $branding_classes[] = $vars['site_slogan'] ? 'with-site-slogan' : 'no-slogan';
   $vars['branding_classes'] = implode(' ', $branding_classes);
+}
+
+/**
+ * Override or insert variables into the node template.
+ */
+function at_commerce_preprocess_node(&$vars) {
+  // Remove the horrid inline class, it does wanky things like display:inline on the UL, whack eh?
+  $vars['content']['links']['#attributes']['class'] = 'links';
+}
+
+/**
+ * Override or insert variables into the comment template.
+ */
+function at_commerce_preprocess_comment(&$vars) {
+  // Remove the horrid inline class, again, for fucks sake.
+  $vars['content']['links']['#attributes']['class'] = 'links';
 }
 
 /**
@@ -275,6 +292,34 @@ function at_commerce_css_alter(&$css) {
 }
 
 
+/**
+ * Returns HTML for a breadcrumb trail.
+ */
+function at_commerce_breadcrumb($vars) {
+  $breadcrumb = $vars['breadcrumb'];
+  $show_breadcrumb = theme_get_setting('breadcrumb_display');
+  if ($show_breadcrumb == 'yes') {
+    $show_breadcrumb_home = theme_get_setting('breadcrumb_home');
+    if (!$show_breadcrumb_home) {
+      array_shift($breadcrumb);
+    }
+    if (!empty($breadcrumb)) {
+      $heading = '<h2>' . t('You are here: ') . '</h2>';
+      $separator = filter_xss(theme_get_setting('breadcrumb_separator'));
+      $output = '';
+      foreach ($breadcrumb as $key => $val) {
+        if ($key == 0) {
+          $output .= '<li class="crumb">' . $val . '</li>';
+        }
+        else {
+          $output .= '<li class="crumb"><span>' . $separator . '</span>' . $val . '</li>';
+        }
+      }
+      return $heading . '<ol id="crumbs">' . $output . '</ol>';
+    }
+  }
+  return '';
+}
 
 /**
  * Alter the search block form.

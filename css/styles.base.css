@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  line-height: 1.6:
+  line-height: 1.5;
 }
 
 
@@ -193,7 +193,35 @@ dd {
 }
 
 
+/* Forms */
 
+input.form-text,
+textarea {
+  padding: 4px;
+}
+select {
+  padding: 3px;
+}
+.form-textarea-wrapper textarea {
+  font-size: 130%;
+}
+.filter-wrapper {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.filter-help {
+  padding: 10px 0 0 0;
+}
+.filter-wrapper .form-item {
+  padding: 0 0 10px 2px;
+}
+.filter-guidelines {
+  padding: 0 10px 10px 2px;
+}
+
+
+/* Site Header */
 #header-wrapper {
   border-bottom: 1px solid #fff;
 }
@@ -284,7 +312,7 @@ dd {
   padding: 20px 0 15px;
 }
 
-/* Zone specific styling */
+/* Panel specific styling */
 .four-4x25 ul,
 .four-4x25 ul li {
   list-style: none;
@@ -298,10 +326,136 @@ dd {
 
 
 
+/* Fields */
+.field-type-image img {
+  background: #fff;
+  padding: 4px;
+}
+.field-label {
+  font-size: 1em;
+}
+
+
+/* Articles */
+.article,
+.comment {
+  margin-bottom: 25px;
+}
+article header {
+ position: relative;
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.article-title {
+  line-height: 1.4;
+}
+article .submitted {
+  color: #666;
+  font-size: 0.923em;
+  padding: 0 0 0.6em;
+  margin: 0;
+  position: relative;
+}
+article .article-content {
+  padding: 10px 0;
+}
+article ul.links {
+  font-size: 0.923em;
+  text-transform: capitalize;
+  text-align: right;
+  margin: 10px 0;
+  padding: 0;
+}
+article ul.links li {
+  display: inline;
+  list-style: none;
+  margin: 0 0 0 10px;
+}
+article ul.links a {
+  padding: 0;
+}
+.article header.with-picture {
+  height: 3.5em;
+  height: auto !important;
+  min-height: 3.5em;
+  padding-left: 60px;
+}
+.article header .user-picture {
+  left: 0;
+  top: 9px;
+  position: absolute;
+  max-width: 47px;
+  max-height: 47px;
+  overflow: hidden;
+}
+.article header .user-picture img {
+  display: block;
+  margin: 0;
+  max-width: 47px;
+  max-height: 47px;
+}
+
+
+/* Comments */
+h2.comment-title {
+  margin-bottom: 20px;
+}
+.comment {}
+article.comment header.with-picture {
+  height: 3em;
+  height: auto !important;
+  min-height: 3em;
+  padding-left: 50px;
+}
+article.comment header .user-picture {
+  top: 5px;
+  max-width: 35px;
+  max-height: 35px;
+}
+article.comment header .user-picture img {
+  max-width: 35px;
+  max-height: 35px;
+}
+article .comment-content {
+  padding: 10px 0 0;
+}
+
+.comment em.new {
+  background: green;
+  border: 1px solid #fff;
+  color: #fff;
+  display: block;
+  float: right;
+  font-style: normal;
+  line-height: 1.3;
+  padding: 0 4px 2px;
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
 
 
 
 
+/* Breadcrumb */
+#breadcrumb {
+  margin-bottom: 20px;
+}
+#breadcrumb h2 {
+  font-size: 1em;
+  font-weight: 400;
+  display: inline;
+}
+ol#crumbs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+ol#crumbs li.crumb {
+  display: inline;
+  list-style: none;
+}
+ol#crumbs li.crumb a  {}
 
 
 /* Messages */
@@ -309,10 +463,15 @@ dd {
   margin-bottom: 25px;
 }
 
+/* Tasks */
+#tasks {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 /* Local task tabs */
 ul.primary {
-  margin: 10px 0 20px;
+  margin: 7px 0 10px;
   padding: 0;
 }
 ul.primary li a {
