@@ -3,13 +3,23 @@
  */
 
 /* Cart and Checkout - lots of form item classes are shared */
+
+
+
+.views-field-line-item-title {}
+.views-field-commerce-unit-price {}
+.views-field-quantity 
+.views-field-edit-delete {}
+
+
 th.views-field-line-item-title {}
 th.views-field-commerce-unit-price {}
+th.views-field-quantity 
 th.views-field-edit-delete {}
 th.views-field-commerce-total {}
 
 td.views-field-line-item-title {}
-td.views-field-quantity {}
+td.views-field-quantity 
 td.price {}
 td.views-field-commerce-total {}
 td.views-field-commerce-unit-price {}
@@ -95,9 +105,6 @@ form#views-form-commerce-cart-block-default {}
 
 
 /* Checkout forms */
-form#commerce-checkout-form-checkout{}
-
-
 
 
 /* Product Displays */

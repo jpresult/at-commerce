@@ -77,6 +77,25 @@ function at_commerce_preprocess_html(&$vars) {
     $vars['classes_array'][] = theme_get_setting($setting);
   }
 
+  // Commerce settings - grids
+  $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
+  $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
+  if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {
+    drupal_add_js($path_to_theme . '/js/eq.js');
+  }
+  if ($show_frontpage_grid == TRUE) {
+    $cols_fpg = theme_get_setting('content_display_grids_frontpage_colcount');
+    $vars['classes_array'][] = $cols_fpg;
+    drupal_add_js($path_to_theme . '/js/eq-fp-grid.js');
+  }
+  if ($show_taxopage_grid == TRUE) {
+    $cols_tpg = theme_get_setting('content_display_grids_taxonomy_pages_colcount');
+    $vars['classes_array'][] = $cols_tpg;
+    drupal_add_js($path_to_theme . '/js/eq-tp-grid.js');
+  }
+
+
+
   // Font family settings
   $fonts = array(
     'bf'  => 'base_font',
@@ -152,6 +171,15 @@ function at_commerce_process_page(&$vars) {
 function at_commerce_preprocess_node(&$vars) {
   // Remove the horrid inline class, it does wanky things like display:inline on the UL, whack eh?
   $vars['content']['links']['#attributes']['class'] = 'links';
+  
+  // Commerce settings - grids - nuke links off teasers if we in a grid view
+  if ($vars['view_mode'] == 'teaser') {
+    $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
+    $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
+    if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {
+      unset($vars['content']['links']);
+    }
+  }
 }
 
 /**
@@ -320,6 +348,35 @@ function at_commerce_breadcrumb($vars) {
   }
   return '';
 }
+
+
+function at_commerce_fieldset($vars) {
+  $element = $vars['element'];
+  element_set_attributes($element, array('id'));
+  _form_set_class($element, array('form-wrapper'));
+
+  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
+  // add a class to the fieldset wrapper if a legend exists, in some instances they do not
+  $class = "without-legend"; 
+  if (!empty($element['#title'])) {
+    // Always wrap fieldset legends in a SPAN for CSS positioning.
+    $output .= '<legend><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
+    // add a class to the fieldset wrapper if a legend exists, in some instances they do not
+    $class = 'with-legend';
+  }
+  $output .= '<div class="fieldset-wrapper ' . $class  . '">';
+  if (!empty($element['#description'])) {
+    $output .= '<div class="fieldset-description">' . $element['#description'] . '</div>';
+  }
+  $output .= $element['#children'];
+  if (isset($element['#value'])) {
+    $output .= $element['#value'];
+  }
+  $output .= '</div>';
+  $output .= "</fieldset>\n";
+  return $output;
+}
+
 
 /**
  * Alter the search block form.

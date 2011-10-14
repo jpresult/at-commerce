@@ -15,11 +15,6 @@
   stylesheets[all][] = css/styles.settings.css
   stylesheets[all][] = color/colors.css
 
-
-;----------// scripts
-  ;scripts[] = js/eq.js
-  ;scripts[] = js/eq-gp.js
-
 ;----------// Regions
   regions[menu_bar_top]      = Top Menu Bar
   regions[header]            = Header
@@ -145,7 +140,7 @@
   settings[site_slogan_case]      = 'ssc-n'
   settings[site_slogan_weight]    = 'ssw-n'
   settings[site_slogan_shadow]    = 'sss-n'
-  
+
   settings[page_title_case]      = 'ptc-n'
   settings[page_title_weight]    = 'ptw-n'
   settings[page_title_alignment] = 'pta-l'
@@ -167,7 +162,7 @@
   settings[block_title_shadow]    = 'bts-n'
 
   ; Image field settings
-  settings[image_alignment]      = 'ia-r'
+  settings[image_alignment]      = 'ia-c'
   settings[image_caption_teaser] = 0
   settings[image_caption_full]   = 0
 
@@ -194,8 +189,8 @@
   settings[comments_hide_title] = 0
 
   ; Rounded corners
-  settings[corner_radius_form_input_text]   = 'itrc-3'
-  settings[corner_radius_form_input_submit] = 'isrc-10'
+  settings[corner_radius_form_input_text]   = 'itrc-0'
+  settings[corner_radius_form_input_submit] = 'isrc-6'
   settings[ie_corners] = 0
 
   ; Header layout
@@ -203,7 +198,7 @@
 
   ; Background
   settings[body_background] = 'bb-n'
-  
+
   ; Menu settings
   settings[main_menu_alignment] = 'mma-l'
   settings[menu_bullets]        = 'mb-dd'
@@ -224,3 +219,9 @@
   settings[noggin_image_vertical_alignment]   = 't'
   settings[noggin_image_repeat]               = 'ni-r-nr'
   settings[noggin_image_width]                = 'ni-w-a'
+
+  ; Content Displays
+  settings[content_display_grids_frontpage]               = 0
+  settings[content_display_grids_frontpage_colcount]      = 'fpcc-4'
+  settings[content_display_grids_taxonomy_pages]          = 0
+  settings[content_display_grids_taxonomy_pages_colcount] = 'tpcc-4'

@@ -1,7 +1,48 @@
-/* AT Styles
- * NOTICE: This is a commercial Drupal theme. Elements of this theme including this field
- * are licensed under a standard commercial license which does not permit redistribution. 
- */
+/* AT Commerce Settings Styles */
+
+/* Frontpage and Taxonomy Grids */
+.content-display-grid article.article {
+  float: left;
+}
+.content-display-grid article .article-inner {
+  padding: 5px;
+}
+.content-display-grid article .article-inner:hover {}
+.content-display-grid article.article h1{
+  font-size: 1.077em;
+}
+body.front.fpcc-2 #block-system-main article.article,
+body.page-taxonomy.tpcc-2 #block-system-main article.article {
+  width: 50%;
+}
+body.front.fpcc-3 #block-system-main article.article,
+body.page-taxonomy.tpcc-3 #block-system-main article.article {
+  width: 33.33333333333333%;
+}
+body.front.fpcc-4 #block-system-main article.article,
+body.page-taxonomy.tpcc-4 #block-system-main article.article {
+  width: 25%;
+}
+body.front.fpcc-5 #block-system-main article.article,
+body.page-taxonomy.tpcc-5 #block-system-main article.article {
+  width: 20%;
+}
+body.front.fpcc-6 #block-system-main article.article,
+body.page-taxonomy.tpcc-6 #block-system-main article.article {
+  width: 16.66666666666667%;
+}
+body.front.fpcc-7 #block-system-main article.article,
+body.page-taxonomy.tpcc-7 #block-system-main article.article {
+  width: 14.28571428571429%;
+}
+body.front.fpcc-8 #block-system-main article.article,
+body.page-taxonomy.tpcc-8 #block-system-main article.article {
+  width: 12.5%;
+}
+
+
+
+
 /* HL - Left */
 .hl-l #branding {
   float: left;
@@ -23,7 +64,7 @@
 /* HL - Right */
 .hl-r #branding {
   float: right;
-  margin: 0 20px; 
+  margin: 0 20px;
 }
 .hl-r .region-header {
   float: left;
@@ -47,7 +88,7 @@
 .hl-c #branding {
   float: none;
   margin: auto;
-  text-align: center; 
+  text-align: center;
 }
 .hl-c .region-header {
   display: table;
@@ -143,7 +184,7 @@
   margin-bottom: 0;
   line-height: 1;
 }
-/* Override image alignment with short codes, 
+/* Override image alignment with short codes,
    its takes a lot to override the theme settings for image alignment */
 body .image-left,
 body div.image-left,
@@ -423,7 +464,7 @@ body.bf-ms,
 .nts-d .article-title,
 .cts-d .comment-title,
 .bts-d .block-title{
-  text-shadow: 0 1px 1px rgba(0,0,0,0.5); 
+  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 .sns-w #site-name,
 .sss-w #site-slogan,
@@ -431,7 +472,7 @@ body.bf-ms,
 .nts-w .article-title,
 .cts-w .comment-title,
 .bts-w .block-title{
-  text-shadow: 0 1px 1px rgba(255,255,255,0.8); 
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
 }
 
 /* Login block - horizontal (theme setting) */
@@ -441,7 +482,7 @@ body.bf-ms,
 }
 .region-header .lb-h {
   float: right;
-} 
+}
 .lb-h .block-inner,
 .lb-h .block-content {
   background: none;
@@ -502,8 +543,8 @@ body.bf-ms,
 .mb-n ul.menu {
   padding: 0;
   margin: 0;
-} 
-.mb-n ul li.leaf,   
+}
+.mb-n ul li.leaf,
 .mb-n ul li.collapsed,
 .mb-n ul li.expanded {
   list-style: none;
@@ -515,7 +556,7 @@ body.bf-ms,
   padding: 0 0 0 1.1em;
   margin: 0;
 }
-.mb-ah ul li.leaf,   
+.mb-ah ul li.leaf,
 .mb-ah ul li.collapsed,
 .mb-ah ul li.expanded {
   list-style-image: url(images/arrow-head.png);
@@ -524,7 +565,7 @@ body.bf-ms,
   padding: 0 0 0 1.2em;
   margin: 0;
 }
-.mb-ad ul li.leaf,   
+.mb-ad ul li.leaf,
 .mb-ad ul li.collapsed,
 .mb-ad ul li.expanded {
   list-style-image: url(images/arrow-double.png);
@@ -532,8 +573,8 @@ body.bf-ms,
 .mb-ca ul.menu {
   padding: 0 0 0 1.6em;
   margin: 0;
-} 
-.mb-ca ul li.leaf,   
+}
+.mb-ca ul li.leaf,
 .mb-ca ul li.collapsed,
 .mb-ca ul li.expanded {
   list-style-image: url(images/arrow-circle.png);
@@ -541,8 +582,8 @@ body.bf-ms,
 .mb-fa ul.menu {
   padding: 0 0 0 1.6em;
   margin: 0;
-} 
-.mb-fa ul li.leaf,   
+}
+.mb-fa ul li.leaf,
 .mb-fa ul li.collapsed,
 .mb-fa ul li.expanded {
   list-style-image: url(images/arrow-fat.png);
@@ -550,8 +591,8 @@ body.bf-ms,
 .mb-sa ul.menu {
   padding: 0 0 0 1.6em;
   margin: 0;
-} 
-.mb-sa ul li.leaf,   
+}
+.mb-sa ul li.leaf,
 .mb-sa ul li.collapsed,
 .mb-sa ul li.expanded {
   list-style-image: url(images/arrow-skinny.png);

@@ -93,6 +93,11 @@ a:focus {
 .nav ul li a.active,
 .nav ul li.active-trail a {}
 
+.nav ul ul {
+   background: #212121;
+  background: rgba(0, 0, 0, 0.8);
+}
+
 /* Superfish Skin */
 .sf-menu a {
   border: 0;
@@ -135,12 +140,7 @@ a:focus {
 #footer a {}
 
 /* Blocks */
-
-
-.sidebar .block-inner {
-  border-bottom: 1px solid #d5d5d5;
-  box-shadow: 0 4px 5px rgba(255, 255, 255, 0.7);
-}
+.sidebar .block-inner {}
 .block-inner {}
 .block-title {}
 .block-content {}
@@ -167,7 +167,7 @@ a:focus {
 
 /* Fields */
 .field-type-image img {
-  border: 1px solid #d5d5d5;
+  border: 1px solid rgba(0,0,0, 0.15);
 }
 
 /* Comments */
@@ -185,6 +185,9 @@ a:focus {
 /* Profile */
 #profile .profile {}
 #profile h2 {}
+.profile h3 {
+    border-bottom: 1px solid rgba(0,0,0, 0.15);
+}
 
 /* Pager */
 div.item-list ul.pager li a,
@@ -195,7 +198,7 @@ div.item-list ul.pager li a:active {
 
 /* Local task tabs */
 ul.primary {
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid rgba(0,0,0, 0.15);
 }
 ul.primary li a,
 ul.primary li a:hover {
@@ -221,6 +224,19 @@ tr.even {}
 tbody tr:nth-child(2n+1),
 tr.odd {}
 
+td, th {
+ border-color: #d5d5d5;
+ border-color: rgba(0,0,0, 0.15);
+}
+tr.even, tr.odd {
+  border-bottom: 1px solid #d5d5d5;
+  border-bottom-color: rgba(0,0,0, 0.15);
+}
+tbody {
+  border-top: 1px solid #d5d5d5;
+  border-top-color: rgba(0,0,0, 0.15);
+}
+
 /* Form */
 input.form-text,
 textarea {}
@@ -228,9 +244,60 @@ textarea {}
 .form-submit:hover,
 .form-submit:focus {}
 
+input.form-text,
+textarea,
+select {
+  border: 1px solid #d5d5d5;
+  border-color: rgba(0,0,0, 0.15);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+fieldset {
+  border-color: #d5d5d5;
+  border-color: rgba(0,0,0, 0.15);
+}
+
+input[type="submit"] {
+  background-color: #e7e7e7;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e7e7e7), to(#efefef));
+  background-image: -moz-linear-gradient(-90deg, #e7e7e7, #efefef);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#e7e7e7', endColorstr='#efefef')";
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#e7e7e7,endColorstr=#efefef,GradientType=0);
+  border: 1px solid #e7e7e7;
+  color: #333;
+}
+
+
+/* Commerce */
+form.commerce-add-to-cart input {
+  background-color: #007100;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#007100), to(#588E51));
+  background-image: -moz-linear-gradient(-90deg, #007100, #588E51);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#007100', endColorstr='#588E51')";
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr=#007100,endColorstr=#588E51,GradientType=0);
+  border: 1px solid #007100;
+  color: #ffffff;
+}
+
+.commerce-grid article .article-inner {
+  border: 5px solid #f5f5f5; /* page background color */
+}
+.commerce-grid article .article-inner:hover {
+  border-width: 5px;
+  border-style: solid;
+  border-color: #d5d5d5;
+  border-color: rgba(0, 0, 0, 0.03);
+}
+
+
+
 #search-block-form input.form-text,
 #search-block-form input::-webkit-input-placeholder,
 #search-block-form input:-moz-placeholder {}
+
+
+
 
 /* Calendar styles */
 .calendar-calendar div.date-nav {

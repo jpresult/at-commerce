@@ -21,5 +21,17 @@
 .commerce-order-handler-area-order-total .commerce-price-formatted-components tr.component-type-commerce-price-formatted-amount {
   font-weight: bold;
 }
-
-/* We add additional classes for finger grained styles */
+.views-field-commerce-total {
+  text-align: right;
+}
+.views-field-quantity {
+  text-align: center;
+}
+.view-commerce-cart-form table td .form-submit {
+  font-size: 0.923em;
+  margin: 3px 0;
+  padding: 1px 7px 3px;
+  -moz-box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
+}

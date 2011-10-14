@@ -20,12 +20,75 @@ if (module_exists('noggin')) {
  */
 function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
 
+  // Content displays
+  $form['at']['content_display'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Content Displays'),
+    '#description' => t('<h3>Content Displays</h3><p>Display the front page or taxonomy term pages as a grid. These settings use the normal node teasers and format them as a grid. Article links (such as the <em>Read More</em> link) are hidden when displayed in the grid. These settings will work well with the responsive design, unlike a Views table grid which does not.</p>'),
+  );
+  $form['at']['content_display']['content_display_grids']['frontpage'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Frontpage'),
+    '#description' => t('<h3>Frontpage</h3>'),
+  );
+  $form['at']['content_display']['content_display_grids']['frontpage']['content_display_grids_frontpage'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display front page teasers as a grid'),
+    '#default_value' => theme_get_setting('content_display_grids_frontpage'),
+  );
+  $form['at']['content_display']['content_display_grids']['frontpage']['content_display_grids_frontpage_colcount'] = array(
+    '#type' => 'select',
+    '#title' => t('Enter the number of grid columns'),
+    '#default_value' => theme_get_setting('content_display_grids_frontpage_colcount'),
+    '#options' => array(
+      'fpcc-2' => t('2'),
+      'fpcc-3' => t('3'),
+      'fpcc-4' => t('4'),
+      'fpcc-5' => t('5'),
+      'fpcc-6' => t('6'),
+      'fpcc-7' => t('7'),
+      'fpcc-8' => t('8'),
+    ),
+    '#states' => array (
+      'visible' => array (
+        'input[name="content_display_grids_frontpage"]' => array ('checked' => TRUE)
+      )
+    )
+  );
+  $form['at']['content_display']['content_display_grids']['taxonomy'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Taxonomy'),
+    '#description' => t('<h3>Taxonomy Pages</h3>'),
+  );
+  $form['at']['content_display']['content_display_grids']['taxonomy']['content_display_grids_taxonomy_pages'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Display taxonomy page teasers as a grid'),
+    '#default_value' => theme_get_setting('content_display_grids_taxonomy_pages'),
+  );
+  $form['at']['content_display']['content_display_grids']['taxonomy']['content_display_grids_taxonomy_pages_colcount'] = array(
+    '#type' => 'select',
+    '#title' => t('Enter the number of grid columns'),
+    '#default_value' => theme_get_setting('content_display_grids_taxonomy_pages_colcount'),
+    '#options' => array(
+      'tpcc-2' => t('2'),
+      'tpcc-3' => t('3'),
+      'tpcc-4' => t('4'),
+      'tpcc-5' => t('5'),
+      'tpcc-6' => t('6'),
+      'tpcc-7' => t('7'),
+      'tpcc-8' => t('8'),
+    ),
+    '#states' => array (
+      'visible' => array (
+        'input[name="content_display_grids_taxonomy_pages"]' => array ('checked' => TRUE)
+      )
+    )
+  );
   // Header layout
   $form['at']['header'] = array(
     '#type' => 'fieldset',
     '#title' => t('Header layout'),
     '#description' => t('<h3>Header layout</h3><p>Change the position of the logo, site name and slogan. Note that his will automatically alter the header region layout also. If the branding elements are centered the header region will center below them, otherwise the header region will float in the opposite direction.</p>'),
-
   );
   $form['at']['header']['header_layout'] = array(
     '#type' => 'radios',
