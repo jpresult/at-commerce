@@ -94,8 +94,6 @@ function at_commerce_preprocess_html(&$vars) {
     drupal_add_js($path_to_theme . '/js/eq-tp-grid.js');
   }
 
-
-
   // Font family settings
   $fonts = array(
     'bf'  => 'base_font',
@@ -137,7 +135,6 @@ function at_commerce_preprocess_html(&$vars) {
       )
     );
   }
-
 }
 
 /**
@@ -172,7 +169,7 @@ function at_commerce_preprocess_node(&$vars) {
   // Remove the horrid inline class, it does wanky things like display:inline on the UL, whack eh?
   $vars['content']['links']['#attributes']['class'] = 'links';
   
-  // Commerce settings - grids - nuke links off teasers if we in a grid view
+  // Content grids - nuke links off teasers if we in a grid view
   if ($vars['view_mode'] == 'teaser') {
     $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
     $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;

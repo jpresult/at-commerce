@@ -3,10 +3,6 @@
  * are licensed under a standard commercial license which does not permit redistribution. 
  */
 
-/*
-
-*/
-
 html {
   background: #e2e2e2;
 }
@@ -280,10 +276,10 @@ form.commerce-add-to-cart input {
   color: #ffffff;
 }
 
-.commerce-grid article .article-inner {
+.content-display-grid article .article-inner {
   border: 5px solid #f5f5f5; /* page background color */
 }
-.commerce-grid article .article-inner:hover {
+.content-display-grid article .article-inner:hover {
   border-width: 5px;
   border-style: solid;
   border-color: #d5d5d5;

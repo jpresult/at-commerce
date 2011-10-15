@@ -1,5 +1,8 @@
 <article id="article-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="article-inner clearfix">
+  
+  <?php // kpr($content);?>
+  <?php // kpr($node);?>
 
     <?php print $unpublished; ?>
 

@@ -52,7 +52,7 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
   margin: 0 10px;
 }
 .hl-l .region-header .block {
-  display: inline;
+  display: inline-block;
   clear: none;
   margin-bottom: 0;
 }
