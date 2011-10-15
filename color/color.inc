@@ -1,5 +1,5 @@
 <?php
-// Clean
+// Commerce color definitions
 $info = array(
   'fields' => array(
     'base'                   => t('Background'),

@@ -1,5 +1,6 @@
 <?php
-// Clean
+// Commerce
+
 include_once(drupal_get_path('theme', 'adaptivetheme') . '/inc/google.web.fonts.inc');
 
 // Override noggin selector
