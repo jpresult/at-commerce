@@ -1,15 +1,34 @@
 /* AT Commerce Settings Styles */
 
 /* Frontpage and Taxonomy Grids */
-.content-display-grid article.article {
+#block-system-main.content-display-grid  article.article  {
   float: left;
+  margin: 0 0 10px;
 }
+
+/* TODO: use nth child selectors to clear uneven hieghts, we need this both for chrome and responsive styles
+   to work correctly */
+
 .content-display-grid article .article-inner {
   padding: 5px;
 }
 .content-display-grid article .article-inner:hover {}
 .content-display-grid article.article h1{
   font-size: 1.077em;
+}
+.content-display-grid article .article-content {
+  padding: 0 0 10px;
+}
+.content-display-grid article .article-inner img {
+  padding: 0;
+  height: auto;
+}
+.content-display-grid article .field {
+  margin-bottom: 0;
+}
+.content-display-grid article input.form-submit {
+  margin-left: 0;
+  margin-right: 0;
 }
 body.front.fpcc-2 #block-system-main article.article,
 body.page-taxonomy.tpcc-2 #block-system-main article.article {

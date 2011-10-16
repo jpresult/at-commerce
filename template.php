@@ -80,9 +80,7 @@ function at_commerce_preprocess_html(&$vars) {
   // Commerce settings - grids
   $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
   $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
-  if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {
-    drupal_add_js($path_to_theme . '/js/eq.js');
-  }
+  if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {drupal_add_js($path_to_theme . '/js/equalheights.js');}
   if ($show_frontpage_grid == TRUE) {
     $cols_fpg = theme_get_setting('content_display_grids_frontpage_colcount');
     $vars['classes_array'][] = $cols_fpg;
@@ -93,7 +91,7 @@ function at_commerce_preprocess_html(&$vars) {
     $vars['classes_array'][] = $cols_tpg;
     drupal_add_js($path_to_theme . '/js/eq-tp-grid.js');
   }
-
+  
   // Font family settings
   $fonts = array(
     'bf'  => 'base_font',
@@ -168,6 +166,9 @@ function at_commerce_process_page(&$vars) {
 function at_commerce_preprocess_node(&$vars) {
   // Remove the horrid inline class, it does wanky things like display:inline on the UL, whack eh?
   $vars['content']['links']['#attributes']['class'] = 'links';
+  
+  // Clearfix node content wrapper
+  $vars['content_attributes_array']['class'][] = 'clearfix';
   
   // Content grids - nuke links off teasers if we in a grid view
   if ($vars['view_mode'] == 'teaser') {

@@ -35,23 +35,25 @@
     </header>
   </div></div>
 
-  <?php if ($page['three_33_first'] || $page['three_33_second'] || $page['three_33_third']): ?>
-    <div id="sub-panels-wrapper"><div class="container clearfix">
-      <div class="three-3x33 gpanel clearfix">
-        <?php print render($page['three_33_first']); ?>
-        <?php print render($page['three_33_second']); ?>
-        <?php print render($page['three_33_third']); ?>
+  <?php if ($page['secondary_content']): ?>
+    <div id="secondary-content-wrapper"><div class="texture-overlay">
+      <div class="container clearfix">
+        <?php print render($page['secondary_content']); ?>
       </div>
     </div></div>
   <?php endif; ?>
 
-  <?php if ($page['secondary_content']): ?>
-    <div id="secondary-content-wrapper"><div class="container clearfix">
-      <?php print render($page['secondary_content']); ?>
-    </div></div>
-  <?php endif; ?>
+  <div id="content-wrapper" class="<?php print $page['secondary_content'] ? 'with-secondary' : 'no-secondary'; ?>"><div class="container">
 
-  <div id="content-wrapper"><div class="container">
+    <?php if ($page['three_33_first'] || $page['three_33_second'] || $page['three_33_third']): ?>
+      <div id="sub-panels-wrapper">
+        <div class="three-3x33 gpanel clearfix">
+          <?php print render($page['three_33_first']); ?>
+          <?php print render($page['three_33_second']); ?>
+          <?php print render($page['three_33_third']); ?>
+        </div>
+      </div>
+    <?php endif; ?>
 
     <?php if ($messages || $page['help']): ?>
       <div id="messages-help-wrapper" class="clearfix">
@@ -105,7 +107,7 @@
 
           <div id="content"><?php print render($page['content']); ?></div>
 
-          <?php print $feed_icons; ?>
+          <?php // print $feed_icons; // not sure what to do with the feed icon at this stage... ?>
 
         </<?php print $tag; ?>>
 
@@ -117,6 +119,13 @@
       <?php print render($page['sidebar_second']); ?>
 
     </div></div>
+
+    <?php if ($page['tertiary_content']): ?>
+      <div id="tertiary-content-wrapper">
+        <?php print render($page['tertiary_content']); ?>
+      </div>
+    <?php endif; ?>
+
   </div></div>
 
   <?php if ($page['five_first'] || $page['five_second'] || $page['five_third'] || $page['five_fourth'] || $page['five_fifth']): ?>
@@ -128,12 +137,6 @@
         <?php print render($page['five_fourth']); ?>
         <?php print render($page['five_fifth']); ?>
       </div>
-    </div></div>
-  <?php endif; ?>
-
-  <?php if ($page['tertiary_content']): ?>
-    <div id="tertiary-content-wrapper"><div class="container clearfix">
-      <?php print render($page['tertiary_content']); ?>
     </div></div>
   <?php endif; ?>
 
