@@ -225,3 +225,9 @@
   settings[content_display_grids_frontpage_colcount]      = 'fpcc-4'
   settings[content_display_grids_taxonomy_pages]          = 0
   settings[content_display_grids_taxonomy_pages_colcount] = 'tpcc-4'
+
+  ; Slider
+  settings[show_slideshow] = 1
+  settings[show_slideshow_caption] = 0
+  settings[show_slideshow_navigation_controls] = 0
+  settings[show_slideshow_direction_controls] = 1

@@ -77,21 +77,6 @@ function at_commerce_preprocess_html(&$vars) {
     $vars['classes_array'][] = theme_get_setting($setting);
   }
 
-  // Commerce settings - grids
-  $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
-  $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
-  if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {drupal_add_js($path_to_theme . '/js/equalheights.js');}
-  if ($show_frontpage_grid == TRUE) {
-    $cols_fpg = theme_get_setting('content_display_grids_frontpage_colcount');
-    $vars['classes_array'][] = $cols_fpg;
-    drupal_add_js($path_to_theme . '/js/eq-fp-grid.js');
-  }
-  if ($show_taxopage_grid == TRUE) {
-    $cols_tpg = theme_get_setting('content_display_grids_taxonomy_pages_colcount');
-    $vars['classes_array'][] = $cols_tpg;
-    drupal_add_js($path_to_theme . '/js/eq-tp-grid.js');
-  }
-  
   // Font family settings
   $fonts = array(
     'bf'  => 'base_font',
@@ -133,6 +118,44 @@ function at_commerce_preprocess_html(&$vars) {
       )
     );
   }
+  
+  // Custom settings for AT Commerce
+
+  // Content displays
+  $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
+  $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
+  if ($show_frontpage_grid == TRUE || $show_taxopage_grid == TRUE) {drupal_add_js($path_to_theme . '/js/equalheights.js');}
+  if ($show_frontpage_grid == TRUE) {
+    $cols_fpg = theme_get_setting('content_display_grids_frontpage_colcount');
+    $vars['classes_array'][] = $cols_fpg;
+    drupal_add_js($path_to_theme . '/js/eq.fp.grid.js');
+  }
+  if ($show_taxopage_grid == TRUE) {
+    $cols_tpg = theme_get_setting('content_display_grids_taxonomy_pages_colcount');
+    $vars['classes_array'][] = $cols_tpg;
+    drupal_add_js($path_to_theme . '/js/eq.tp.grid.js');
+  }
+  
+  // Do stuff for the slideshow
+  if (theme_get_setting('show_slideshow') == 1) {
+    drupal_add_css($path_to_theme . '/css/styles.slideshow.css', array(
+      'group' => CSS_THEME,
+      'type' => 'file',
+      )
+    );
+    drupal_add_js($path_to_theme . '/js/jquery.flexslider-min.js');
+    drupal_add_js($path_to_theme . '/js/slider.options.js');
+    
+    // and even more stuff...
+    if (theme_get_setting('show_slideshow_navigation_controls') == 0) {
+      $vars['classes_array'][] = 'hide-ss-nav';
+    }
+    if (theme_get_setting('show_slideshow_direction_controls') == 0) {
+      $vars['classes_array'][] = 'hide-ss-dir';
+    }
+    
+  }
+  
 }
 
 /**
@@ -169,6 +192,14 @@ function at_commerce_preprocess_node(&$vars) {
   
   // Clearfix node content wrapper
   $vars['content_attributes_array']['class'][] = 'clearfix';
+
+  // Theming for node in block
+  if (theme_get_setting('show_slideshow') == TRUE) {
+    if (isset($vars['node']->nodesinblock)) {
+      $vars['classes_array'][] = 'flexible-slideshow';
+      $vars['title_attributes_array']['class'][] = 'element-invisible';
+    }
+  }
   
   // Content grids - nuke links off teasers if we in a grid view
   if ($vars['view_mode'] == 'teaser') {
@@ -219,6 +250,17 @@ function at_commerce_preprocess_field(&$vars) {
   }
   $vars['field_view_mode'] = '';
   $vars['field_view_mode'] = $element['#view_mode'];
+
+  // Vars and settings for the slideshow, we theme this directly in the field image template
+  $vars['show_slideshow'] = FALSE;
+  if (theme_get_setting('show_slideshow') == 1) {
+   $vars['show_slideshow'] = TRUE;
+  }
+  $vars['show_slideshow_caption'] = FALSE;
+  if (theme_get_setting('show_slideshow_caption') == TRUE) {
+   $vars['show_slideshow_caption'] = TRUE;
+  }
+
 }
 
 /**
