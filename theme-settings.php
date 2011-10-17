@@ -109,12 +109,28 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['slideshow']['show_slideshow'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable slideshow javascript.'),
+    '#title' => t('Enable slideshows'),
     '#default_value' => theme_get_setting('show_slideshow'),
+  );
+  $form['at']['slideshow']['slideshow_width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Enter the image width'),
+    '#description' => t('This must match the width used for the image-style for your slides.'),
+    '#default_value' => theme_get_setting('slideshow_width'),
+    '#size' => 4,
+    '#field_suffix' => 'px',
+    '#maxlength' => 4,
+    '#states' => array (
+      'visible' => array (
+        'input[name="show_slideshow"]' => array (
+          'checked' => TRUE,
+        )
+      )
+    )
   );
   $form['at']['slideshow']['show_slideshow_caption'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show the tile element as a caption.'),
+    '#title' => t('Show the tile element as a caption'),
     '#default_value' => theme_get_setting('show_slideshow_caption'),
     '#description' => t('You must enable titles on the image field and enter caption text on the node edit form.'),
     '#states' => array (
@@ -127,7 +143,8 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['slideshow']['show_slideshow_direction_controls'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show the direction controls (arrows).'),
+    '#title' => t('Show the direction controls (arrows)'),
+    '#description' => t('By default these show as semi-transarent arrows over the slides.'),
     '#default_value' => theme_get_setting('show_slideshow_direction_controls'),
     '#states' => array (
       'visible' => array (
@@ -139,7 +156,8 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['slideshow']['show_slideshow_navigation_controls'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show the navigation controls (dots).'),
+    '#title' => t('Show the navigation controls (dots)'),
+    '#description' => t('By default these show as small dots below the slides.'),
     '#default_value' => theme_get_setting('show_slideshow_navigation_controls'),
     '#states' => array (
       'visible' => array (
@@ -149,7 +167,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
       )
     )
   );
-  
+
   // fonts
   $form['at']['font'] = array(
     '#type' => 'fieldset',

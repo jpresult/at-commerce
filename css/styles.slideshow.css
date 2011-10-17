@@ -1,20 +1,18 @@
 /* Slideshow CSS */
 
+/* Center and remove padding */
+article.flexible-slideshow,
 article.flexible-slideshow .article-inner,
 .flexible-slideshow .article-content,
 .flexslider {
-  max-width: 940px; /* Adjust to your image width - you MUST change this if its not 940px */
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
-/* Only edit below here if you want to change the 
-   styles for captions or the navigaiton controls */
-
-/* Caption styles */
+/* Captions */
 .slideshow-caption {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   background: rgba(0,0,0,0.85);
   text-align: left;
   overflow: hidden;
@@ -27,7 +25,7 @@ article.flexible-slideshow .article-inner,
   color: #fff;
 }
 
-/* Navigation controls */
+/* Nav controls */
 .flexslider ol.flex-control-nav,
 .flexslider ol.flex-control-nav li,
 .flexslider ul.flex-direction-nav,
@@ -39,7 +37,7 @@ article.flexible-slideshow .article-inner,
 
 /* Control nav (the dots along the bottom) */
 .flexslider {
-  padding-bottom: 20px; /* Give some room for the nav controls */
+  padding-bottom: 20px;
 }
 body.hide-ss-nav .flexslider {
   padding-bottom: 0;
@@ -98,7 +96,7 @@ body.hide-ss-nav .flexslider {
   background-position: -30px 0;
 }
 
-/* And just don't touch below here at all, or it will blow up, he he... */
+/* Be careful going below here, it could blow up... */
 .flexible-slideshow .article-content {
   position: relative;
 }
@@ -109,11 +107,13 @@ body.hide-ss-nav .flexslider {
   margin: 0;
   padding: 0;
 }
+
 /* Center the whole shebang */
 article.flexible-slideshow .article-inner {
   margin: auto;
   text-align: center;
 }
+
 /* Do evil and hide stuff with CSS, FTW! */
 body.hide-ss-nav .flexslider ol.flex-control-nav {
   display: none !important;

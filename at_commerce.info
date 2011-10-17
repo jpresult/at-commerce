@@ -1,7 +1,7 @@
 
 ;----------// Theme information
   name        = AT Commerce
-  description = Recolorable multi-column liquid/fixed layout theme. This is a subtheme of <a href="http://drupal.org/project/adaptivetheme">Adaptivetheme</a> - you must first download and install it first. Visit the Settings page to setup your theme - you can change the color, layout and many other settings.
+  description = Recolorable responsive theme with support for the <a href="http://drupal.org/project/commerce">Commerce module</a>, responsive slideshows (see the README for details), Superfish menus and many other goodies. This is a subtheme of <a href="http://drupal.org/project/adaptivetheme">Adaptivetheme 7.x-2.x</a> - you must download and install it first. Visit the Settings page to setup your theme - you can change the color, layout, fonts, set up the slideshow and loads of other stuff.
   version     = 7.x-2.0
   core        = 7.x
   engine      = phptemplate
@@ -216,18 +216,19 @@
 
   ; Noggin extra settings
   settings[noggin_image_horizontal_alignment] = 'c'
-  settings[noggin_image_vertical_alignment]   = 't'
-  settings[noggin_image_repeat]               = 'ni-r-nr'
-  settings[noggin_image_width]                = 'ni-w-a'
+  settings[noggin_image_vertical_alignment] = 't'
+  settings[noggin_image_repeat] = 'ni-r-nr'
+  settings[noggin_image_width] = 'ni-w-a'
 
   ; Content Displays
-  settings[content_display_grids_frontpage]               = 0
-  settings[content_display_grids_frontpage_colcount]      = 'fpcc-4'
-  settings[content_display_grids_taxonomy_pages]          = 0
+  settings[content_display_grids_frontpage] = 0
+  settings[content_display_grids_taxonomy_pages] = 0
+  settings[content_display_grids_frontpage_colcount] = 'fpcc-4'
   settings[content_display_grids_taxonomy_pages_colcount] = 'tpcc-4'
 
   ; Slider
-  settings[show_slideshow] = 1
+  settings[show_slideshow]  = 1
+  settings[slideshow_width] = 940
   settings[show_slideshow_caption] = 0
   settings[show_slideshow_navigation_controls] = 0
-  settings[show_slideshow_direction_controls] = 1
+  settings[show_slideshow_direction_controls]  = 1

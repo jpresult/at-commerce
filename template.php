@@ -118,9 +118,8 @@ function at_commerce_preprocess_html(&$vars) {
       )
     );
   }
-  
-  // Custom settings for AT Commerce
 
+  // Custom settings for AT Commerce
   // Content displays
   $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
   $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
@@ -135,27 +134,38 @@ function at_commerce_preprocess_html(&$vars) {
     $vars['classes_array'][] = $cols_tpg;
     drupal_add_js($path_to_theme . '/js/eq.tp.grid.js');
   }
-  
+
   // Do stuff for the slideshow
   if (theme_get_setting('show_slideshow') == 1) {
+    // Add some js and css
     drupal_add_css($path_to_theme . '/css/styles.slideshow.css', array(
+      'preprocess' => TRUE,
       'group' => CSS_THEME,
-      'type' => 'file',
+      'media' => 'screen',
+      'every_page' => TRUE,
       )
     );
     drupal_add_js($path_to_theme . '/js/jquery.flexslider-min.js');
     drupal_add_js($path_to_theme . '/js/slider.options.js');
-    
-    // and even more stuff...
+
+    // Add some classes to do evil hiding of elements with CSS...
     if (theme_get_setting('show_slideshow_navigation_controls') == 0) {
       $vars['classes_array'][] = 'hide-ss-nav';
     }
     if (theme_get_setting('show_slideshow_direction_controls') == 0) {
       $vars['classes_array'][] = 'hide-ss-dir';
     }
-    
+
+    // Write some evil inline CSS in the head, oh er..
+    $slideshow_width = check_plain(theme_get_setting('slideshow_width'));
+    $slideshow_css = '.flexible-slideshow,.flexible-slideshow .article-inner,.flexible-slideshow .article-content,.flexslider {max-width: ' .  $slideshow_width . 'px;}';
+    drupal_add_css($slideshow_css, array(
+      'group' => CSS_DEFAULT,
+      'type' => 'inline',
+      )
+    );
   }
-  
+
 }
 
 /**
@@ -189,7 +199,7 @@ function at_commerce_process_page(&$vars) {
 function at_commerce_preprocess_node(&$vars) {
   // Remove the horrid inline class, it does wanky things like display:inline on the UL, whack eh?
   $vars['content']['links']['#attributes']['class'] = 'links';
-  
+
   // Clearfix node content wrapper
   $vars['content_attributes_array']['class'][] = 'clearfix';
 
@@ -200,7 +210,7 @@ function at_commerce_preprocess_node(&$vars) {
       $vars['title_attributes_array']['class'][] = 'element-invisible';
     }
   }
-  
+
   // Content grids - nuke links off teasers if we in a grid view
   if ($vars['view_mode'] == 'teaser') {
     $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
@@ -238,24 +248,26 @@ function at_commerce_preprocess_block(&$vars) {
  * Override or insert variables into the field template.
  */
 function at_commerce_preprocess_field(&$vars) {
+
   $element = $vars['element'];
-  $vars['classes_array'][] = 'view-mode-'. $element['#view_mode'];
+
   $vars['image_caption_teaser'] = FALSE;
   $vars['image_caption_full'] = FALSE;
+  $vars['field_view_mode'] = '';
+
+  $vars['classes_array'][] = 'view-mode-'. $element['#view_mode'];
+
   if(theme_get_setting('image_caption_teaser') == 1) {
     $vars['image_caption_teaser'] = TRUE;
   }
+
   if(theme_get_setting('image_caption_full') == 1) {
     $vars['image_caption_full'] = TRUE;
   }
-  $vars['field_view_mode'] = '';
+
   $vars['field_view_mode'] = $element['#view_mode'];
 
-  // Vars and settings for the slideshow, we theme this directly in the field image template
-  $vars['show_slideshow'] = FALSE;
-  if (theme_get_setting('show_slideshow') == 1) {
-   $vars['show_slideshow'] = TRUE;
-  }
+  // Vars and settings for the slideshow, we theme this directly in the field template
   $vars['show_slideshow_caption'] = FALSE;
   if (theme_get_setting('show_slideshow_caption') == TRUE) {
    $vars['show_slideshow_caption'] = TRUE;
@@ -397,7 +409,7 @@ function at_commerce_fieldset($vars) {
 
   $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
   // add a class to the fieldset wrapper if a legend exists, in some instances they do not
-  $class = "without-legend"; 
+  $class = "without-legend";
   if (!empty($element['#title'])) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
     $output .= '<legend><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
