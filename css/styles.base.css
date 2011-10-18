@@ -377,7 +377,7 @@ select {
   margin-right: 40px;
 }
 #quint-panels-wrapper {
-  padding: 30px 0 15px;
+  padding: 30px 0 20px;
 }
 #footer-panels-wrapper {
   padding: 30px 0 15px;
@@ -447,6 +447,7 @@ article ul.links li {
 }
 article ul.links a {
   padding: 0;
+  text-transform: capitalize;
 }
 .article header.with-picture {
   height: 3.5em;
