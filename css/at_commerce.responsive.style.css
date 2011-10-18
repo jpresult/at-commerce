@@ -59,6 +59,10 @@
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
   }
+  #menu-bar .menu-wrapper ul,
+  #menu-bar .menu-wrapper ul li.last {
+    border: 0;
+  }
   #menu-bar .sf-menu {
     height: auto;
     padding: 2px 0;
@@ -68,6 +72,13 @@
   }
   .region-header .block {
     overflow: hidden;
+  }
+  .region-draw .block {
+    float: none;
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 auto 10px;
   }
   .article-title {
     font-size: 1.5em;
@@ -94,6 +105,9 @@
   }
   .flexslider ul.flex-direction-nav {
     top: 10px !important;
+  }
+  .content-display-grid .block-inner {
+    margin: 0;
   }
 }
 /* Smartphone landscape */
@@ -158,12 +172,23 @@
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
   }
+  #menu-bar .menu-wrapper ul,
+  #menu-bar .menu-wrapper ul li.last {
+    border: 0;
+  }
   #menu-bar .sf-menu {
     height: auto;
     padding: 2px 0;
   }
   .region-header .block {
     overflow: hidden;
+  }
+  .region-draw .block {
+    float: none;
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0 auto 10px;
   }
   .article-title {
     font-size: 1.5em;
@@ -190,6 +215,9 @@
   }
   .flexslider ul.flex-direction-nav {
     top: 10px !important;
+  }
+  .content-display-grid .block-inner {
+    margin: 0;
   }
 }
 /* Tablet portrait */

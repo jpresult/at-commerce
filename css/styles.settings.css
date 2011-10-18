@@ -4,11 +4,8 @@
 #block-system-main.content-display-grid  article.article  {
   float: left;
   margin: 0 0 10px;
+  min-width: 150px; /* this ensures 2cols at 320px and 4 cols at 480px (smartphone displays) and allows for the maximum setting of 8 cols at widths like 1280px or more */
 }
-
-/* TODO: use nth child selectors to clear uneven hieghts, we need this both for chrome and responsive styles
-   to work correctly */
-
 .content-display-grid article .article-inner {
   padding: 5px;
 }

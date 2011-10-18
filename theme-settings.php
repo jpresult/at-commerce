@@ -25,7 +25,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   $form['at']['content_display'] = array(
     '#type' => 'fieldset',
     '#title' => t('Content Displays'),
-    '#description' => t('<h3>Content Displays</h3><p>Display the front page or taxonomy term pages as a grid. These settings use the normal node teasers and format them as a grid. Article links (such as the <em>Read More</em> link) are hidden when displayed in the grid. These settings will work well with the responsive design, unlike a Views table grid which does not.</p>'),
+    '#description' => t('<h3>Content Displays</h3><p>Display the front page or taxonomy term pages as a grid. You can set the max number of columns to appear. These settings use the normal node teasers and format them as a grid. Article links (such as the <em>Read More</em> link) are hidden when displayed in the grid. These settings will work well with the responsive design, unlike a Views table grid which does not.</p>'),
   );
   $form['at']['content_display']['content_display_grids']['frontpage'] = array(
     '#type' => 'fieldset',
@@ -39,7 +39,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['content_display']['content_display_grids']['frontpage']['content_display_grids_frontpage_colcount'] = array(
     '#type' => 'select',
-    '#title' => t('Enter the number of grid columns'),
+    '#title' => t('Enter the max number of grid columns'),
     '#default_value' => theme_get_setting('content_display_grids_frontpage_colcount'),
     '#options' => array(
       'fpcc-2' => t('2'),
@@ -68,7 +68,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   );
   $form['at']['content_display']['content_display_grids']['taxonomy']['content_display_grids_taxonomy_pages_colcount'] = array(
     '#type' => 'select',
-    '#title' => t('Enter the number of grid columns'),
+    '#title' => t('Enter the max number of grid columns'),
     '#default_value' => theme_get_setting('content_display_grids_taxonomy_pages_colcount'),
     '#options' => array(
       'tpcc-2' => t('2'),
