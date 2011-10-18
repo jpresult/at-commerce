@@ -165,7 +165,10 @@ function at_commerce_preprocess_html(&$vars) {
       )
     );
   }
-
+  
+  // Draw stuff
+  drupal_add_js($path_to_theme . '/js/draw.js');
+  
 }
 
 /**
@@ -191,6 +194,10 @@ function at_commerce_process_page(&$vars) {
   $branding_classes[] = !$vars['hide_site_name'] ? 'with-site-name' : 'site-name-hidden';
   $branding_classes[] = $vars['site_slogan'] ? 'with-site-slogan' : 'no-slogan';
   $vars['branding_classes'] = implode(' ', $branding_classes);
+  
+  // Draw toggle text
+  $toggle_text = theme_get_setting('toggle_text') ? theme_get_setting('toggle_text') : t('More info');
+  $vars['draw_link'] = '<a class="draw-toggle" href="#">' . check_plain($toggle_text) . '</a>';
 }
 
 /**

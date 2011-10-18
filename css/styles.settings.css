@@ -59,8 +59,23 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
   width: 12.5%;
 }
 
-
-
+/* Draw */
+#draw {
+  display: none ;
+}
+.hl-l #toggle {
+  float: right;
+  margin-right: 20px;
+}
+.hl-r #toggle {
+  float: left;
+  margin-left: 20px;
+}
+.hl-c #toggle {
+  float: none;
+  margin: auto;
+  text-align: center;
+}
 
 /* HL - Left */
 .hl-l #branding {
@@ -68,7 +83,7 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
 }
 .hl-l .region-header {
   float: right;
-  margin: 0 0 0 20px;
+  margin: 17px 0 0 20px;
 }
 .hl-l .region-header .block {
   display: inline-block;
@@ -80,14 +95,14 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
   padding-right: 18px;
   float: left;
 }
+
 /* HL - Right */
 .hl-r #branding {
   float: right;
-  margin: 0 20px;
 }
 .hl-r .region-header {
   float: left;
-  margin: 0 20px 0 0;
+  margin: 17px 20px 0 0;
 }
 .hl-r .region-header .block {
   display: inline;
@@ -103,6 +118,7 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
 .hl-r #site-slogan {
   text-align: right;
 }
+
 /* HL - Centered */
 .hl-c #branding {
   float: none;
@@ -148,7 +164,6 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
 .mma-c #menu-bar .block li a {
   text-align: left;
 }
-
 
 /* Image alignment */
 .field-type-image {
@@ -203,6 +218,7 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
   margin-bottom: 0;
   line-height: 1;
 }
+
 /* Override image alignment with short codes,
    its takes a lot to override the theme settings for image alignment */
 body .image-left,
@@ -244,6 +260,7 @@ body div.image-center .field-type-image img{
   margin-left: auto;
   margin-right: auto;
 }
+
 /* Reset node from image fields */
 form.node-form div.field-type-image {
   text-align: left !important;
@@ -356,7 +373,7 @@ body.bf-ms,
 .ntf-ms .article-title,
 .ctf-ms .comment-title,
 .btf-ms .block-title {
-  font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+  font-family: Consolas, Monaco, "Courier New", Courier, monospace, serif;
 }
 
 /* Base fontsize */
@@ -528,8 +545,12 @@ body.bf-ms,
   margin: 0 !important;
   padding: 1px 3px !important;
   position: absolute;
-  right: 30px;
-  top: 1.2em;
+  right: 10px;
+  top: 1.25em;
+}
+.webkit .lb-h input.form-submit {
+  right: -28px;
+  top: 1.3em;
 }
 .lb-h .form-required,
 .lb-h .item-list {
@@ -539,23 +560,6 @@ body.bf-ms,
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px);
   clip: rect(1px 1px 1px 1px);
-}
-
-/* Box shadows */
-.sc-n #page  {
-  -webkit-box-shadow:0 0 0 transparent;
-  -moz-box-shadow:0 0 0 transparent;
-  box-shadow:0 0 0 transparent;
-}
-.bs-l #page {
-  -webkit-box-shadow:0 0 10px rgba(76, 76, 76, 0.7);
-  -moz-box-shadow:0 0 10px rgba(76, 76, 76, 0.7);
-  box-shadow:0 0 10px rgba(76, 76, 76, 0.7);
-}
-.bs-d #page  {
-  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.9);
-  -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.9);
-  box-shadow:0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Bullets */

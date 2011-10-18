@@ -1,10 +1,17 @@
 <?php // AT Commerce ?>
 <div id="page-wrapper"><div id="page">
 
-  <?php if($page['menu_bar_top']): ?>
-    <div id="menu-top-wrapper"><div class="container clearfix">
-      <?php print render($page['menu_bar_top']); ?>
-    </div></div>
+  <?php if($page['draw']): ?>
+    <div id="draw-wrapper">
+      <div class="container clearfix">
+        <div id="draw"><?php print render($page['draw']); ?></div>
+      </div> 
+    </div>
+    <div id="toggle-wrapper">
+      <div class="container clearfix">
+         <div id="toggle"><?php print $draw_link; ?></div>
+      </div>
+    </div>
   <?php endif; ?>
 
   <div id="header-wrapper"><div class="container clearfix">
@@ -106,8 +113,6 @@
           <?php endif; ?>
 
           <div id="content"><?php print render($page['content']); ?></div>
-
-          <?php // print $feed_icons; // not sure what to do with the feed icon at this stage... ?>
 
         </<?php print $tag; ?>>
 

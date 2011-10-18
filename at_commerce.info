@@ -11,12 +11,14 @@
 ;----------// Style-sheets
   stylesheets[all][] = css/styles.base.css
   stylesheets[all][] = css/styles.modules.css
-  stylesheets[all][] = css/styles.commerce.css
   stylesheets[all][] = css/styles.settings.css
   stylesheets[all][] = color/colors.css
 
+  ; Enable the custom stylesheet and get hacking!
+  ;stylesheets[all][] = css/styles.custom.css
+  
 ;----------// Regions
-  regions[menu_bar_top]      = Top Menu Bar
+  regions[draw]              = Sliding Draw (top)
   regions[header]            = Header
   regions[menu_bar]          = Main Menu Bar
   regions[help]              = Help
@@ -25,18 +27,18 @@
   regions[three_33_second]   = Sub feature panel (second)
   regions[three_33_third]    = Sub feature panel (third)
   regions[highlighted]       = Highlight (content top)
-  regions[two_50_first]      = Main Content Header - First
-  regions[two_50_second]     = Main Content Header - Second
+  regions[two_50_first]      = Content top (first)
+  regions[two_50_second]     = Content top (second)
   regions[content]           = Main Content
-  regions[content_aside]     = Aside (content bottom)
+  regions[content_aside]     = Content bottom
   regions[sidebar_first]     = Sidebar first
   regions[sidebar_second]    = Sidebar second
-  regions[five_first]        = Content bottom panel (first)
-  regions[five_second]       = Content bottom (second)
-  regions[five_third]        = Content bottom (third)
-  regions[five_fourth]       = Content bottom (fourth)
-  regions[five_fifth]        = Content bottom (fifth)
   regions[tertiary_content]  = Tertiary panel
+  regions[five_first]        = Bottom panel (first)
+  regions[five_second]       = Bottom panel (second)
+  regions[five_third]        = Bottom panel (third)
+  regions[five_fourth]       = Bottom panel (fourth)
+  regions[five_fifth]        = Bottom panel (fifth)
   regions[four_first]        = Footer panel (first)
   regions[four_second]       = Footer panel (second)
   regions[four_third]        = Footer panel (third)
@@ -55,9 +57,6 @@
   features[] = favicon
 
 ;----------// Theme Setting Defaults
-
-  ; Layout settings
-
   ; Standard bigscreen
   settings[bigscreen_layout]         = 'three-col-grail'
   settings[bigscreen_page_unit]      = '%'
@@ -226,6 +225,9 @@
   settings[content_display_grids_frontpage_colcount] = 'fpcc-4'
   settings[content_display_grids_taxonomy_pages_colcount] = 'tpcc-4'
 
+  ; Draw
+  settings[toggle_text] = 'More info'
+  
   ; Slider
   settings[show_slideshow]  = 1
   settings[slideshow_width] = 940

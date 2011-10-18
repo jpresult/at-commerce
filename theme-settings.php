@@ -85,6 +85,20 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
       )
     )
   );
+  // Draw
+  $form['at']['draw'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Slidedown Draw'),
+    '#description' => t('<h3>Slidedown Draw</h3><p>Enter the link text to display for the Slidedown draw link. The draw is activated by placing blocks into the Draw region. When the toggle link is clicked the draw will slide open to reveal your block content. This is good for showing a login form, contact information etc.'),
+  );
+  $form['at']['draw']['toggle_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Enter the toggle text:'),
+    '#size' => 15,
+    '#default_value' => theme_get_setting('toggle_text'),
+  );
+  
+  
   // Header layout
   $form['at']['header'] = array(
     '#type' => 'fieldset',
