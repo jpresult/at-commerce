@@ -218,7 +218,7 @@ function at_commerce_preprocess_node(&$vars) {
     }
   }
 
-  // Content grids - nuke links off teasers if we in a grid view
+  // Content grids - nuke links off teasers if in a content_display
   if ($vars['view_mode'] == 'teaser') {
     $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
     $show_taxopage_grid = theme_get_setting('content_display_grids_taxonomy_pages') == 1 ? TRUE : FALSE;
@@ -232,12 +232,12 @@ function at_commerce_preprocess_node(&$vars) {
  * Override or insert variables into the comment template.
  */
 function at_commerce_preprocess_comment(&$vars) {
-  // Remove the horrid inline class, again, for fucks sake.
+  // Remove the horrid inline class, again, for gawds sake
   $vars['content']['links']['#attributes']['class'] = 'links';
 }
 
 /**
- * Override or insert variables into the block template.
+ * Override or insert variables into the block template
  */
 function at_commerce_preprocess_block(&$vars) {
   if ($vars['block']->module == 'superfish' || $vars['block']->module == 'nice_menu') {
@@ -255,49 +255,37 @@ function at_commerce_preprocess_block(&$vars) {
  * Override or insert variables into the field template.
  */
 function at_commerce_preprocess_field(&$vars) {
-
   $element = $vars['element'];
-
   $vars['image_caption_teaser'] = FALSE;
   $vars['image_caption_full'] = FALSE;
   $vars['field_view_mode'] = '';
-
   $vars['classes_array'][] = 'view-mode-'. $element['#view_mode'];
-
   if(theme_get_setting('image_caption_teaser') == 1) {
     $vars['image_caption_teaser'] = TRUE;
   }
-
   if(theme_get_setting('image_caption_full') == 1) {
     $vars['image_caption_full'] = TRUE;
   }
-
   $vars['field_view_mode'] = $element['#view_mode'];
-
   // Vars and settings for the slideshow, we theme this directly in the field template
   $vars['show_slideshow_caption'] = FALSE;
   if (theme_get_setting('show_slideshow_caption') == TRUE) {
    $vars['show_slideshow_caption'] = TRUE;
   }
-
 }
 
 /**
  * Implements hook_css_alter().
  */
 function at_commerce_css_alter(&$css) {
-
   // Replace all Commerce module CSS files with our own copies
-  // for total control over all styles.
-
+  // for total control over all styles
   $path = drupal_get_path('theme', 'at_commerce');
-
   // cart
   $cart_css = drupal_get_path('module', 'commerce_cart') . '/theme/commerce_cart.css';
   if (isset($css[$cart_css])) {
     $css[$cart_css]['data'] = $path . '/css/commerce/commerce_cart.css';
   }
-
   // checkout
   $checkout_css = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.css';
   if (isset($css[$checkout_css])) {
@@ -307,19 +295,16 @@ function at_commerce_css_alter(&$css) {
   if (isset($css[$checkout_admin_css])) {
     $css[$checkout_admin_css]['data'] = $path . '/css/commerce/commerce_checkout_admin.css';
   }
-
   // customer
   $customer_css = drupal_get_path('module', 'commerce_customer') . '/theme/commerce_customer_ui.profile_types.css';
   if (isset($css[$customer_css])) {
     $css[$customer_css]['data'] = $path . '/css/commerce/commerce_customer_ui.profile_types.css';
   }
-
   // file (contrib)
   $file_css = drupal_get_path('module', 'commerce_file') . '/theme/commerce_file.forms.css';
   if (isset($css[$file_css])) {
     $css[$file_css]['data'] = $path . '/css/commerce/commerce_file.forms.css';
   }
-
   // line items
   $line_item_summary_css = drupal_get_path('module', 'line_item') . '/theme/commerce_line_item_summary.css';
   if (isset($css[$line_item_summary_css])) {
@@ -333,7 +318,6 @@ function at_commerce_css_alter(&$css) {
   if (isset($css[$line_item_views_form_css])) {
     $css[$line_item_views_form_css]['data'] = $path . '/css/commerce/commerce_line_item_views_form.css';
   }
-
   // order
   $order_css = drupal_get_path('module', 'commerce_order') . '/theme/commerce_order.css';
   if (isset($css[$order_css])) {
@@ -343,19 +327,16 @@ function at_commerce_css_alter(&$css) {
   if (isset($css[$order_views_css])) {
     $css[$order_views_css]['data'] = $path . '/css/commerce/commerce_order_views.css';
   }
-
   // payment
   $payment_css = drupal_get_path('module', 'commerce_payment') . '/theme/commerce_payment.css';
   if (isset($css[$payment_css])) {
     $css[$payment_css]['data'] = $path . '/css/commerce/commerce_payment.css';
   }
-
   // price
   $price_css = drupal_get_path('module', 'commerce_price') . '/theme/commerce_price.css';
   if (isset($css[$price_css])) {
     $css[$price_css]['data'] = $path . '/css/commerce/commerce_price.css';
   }
-
   // product
   $product_css = drupal_get_path('module', 'commerce_product') . '/theme/commerce_product.css';
   if (isset($css[$product_css])) {
@@ -369,15 +350,12 @@ function at_commerce_css_alter(&$css) {
   if (isset($css[$product_views_css])) {
     $css[$product_views_css]['data'] = $path . '/css/commerce/commerce_product_views.css';
   }
-
   // tax
   $tax_css = drupal_get_path('module', 'commerce_tax') . '/theme/commerce_tax.css';
   if (isset($css[$tax_css])) {
     $css[$tax_css]['data'] = $path . '/css/commerce/commerce_tax.css';
   }
-
 }
-
 
 /**
  * Returns HTML for a breadcrumb trail.
@@ -408,7 +386,9 @@ function at_commerce_breadcrumb($vars) {
   return '';
 }
 
-
+/**
+ * Returns HTML for a fieldset.
+ */
 function at_commerce_fieldset($vars) {
   $element = $vars['element'];
   element_set_attributes($element, array('id'));
@@ -435,18 +415,3 @@ function at_commerce_fieldset($vars) {
   $output .= "</fieldset>\n";
   return $output;
 }
-
-
-/**
- * Alter the search block form.
-
-function at_commerce_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'search_block_form') {
-    $form['search_block_form']['#title'] = t('Search');
-    $form['search_block_form']['#title_display'] = 'invisible';
-    $form['search_block_form']['#size'] = 25;
-    $form['actions']['submit']['#value'] = t('GO');
-    $form['search_block_form']['#attributes']['placeholder'] = t('enter search terms');
-  }
-}
-*/
