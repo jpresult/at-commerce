@@ -73,7 +73,7 @@ div#page {
   background: #e2e2e2;
 }
 
-
+/* Draw */
 #draw-wrapper {
   background: #212121;
   color: #e7e7e7;
@@ -98,8 +98,6 @@ div#page {
   color: #fcfcfc;
 }
 
-
-
 /* Header */
 #site-name a {
   color: #111111;
@@ -107,12 +105,6 @@ div#page {
 #site-slogan {
   color: #333333;
 }
-
-.region-header .block a,
-.region-header .block-menu a,
-.region-header .block .item-list a {}
-.region-header #block-user-login label,
-.region-header #search-block-form .form-submit {}
 
 /* Titles */
 h1, h2, h3, .title {
@@ -203,9 +195,11 @@ select {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
 }
-input.form-text:focus, textarea:focus {
+input.form-text:focus,
+textarea:focus,
+select:focus {
   border-color: #007fff;
-  outline: 0 none;
+  outline: 0;
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px #007fff;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px #007fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px #007fff;
@@ -223,7 +217,8 @@ input[type="submit"] {
   -ms-filter: "progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr='#e7e7e7', endcolorstr='#efefef')";
   filter: progid:dXImageTransform.Microsoft.gradient(enabled='true',startcolorstr=#e7e7e7,endcolorstr=#efefef,GradientType=0);
 }
-form.commerce-add-to-cart input {
+form.commerce-add-to-cart input,
+.add-to-cart #edit-actions input {
   border: 1px solid #007100;
   color: #ffffff;
   background-color: #007100;

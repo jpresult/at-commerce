@@ -1,5 +1,10 @@
 /* Contrib */
 
+/* Ubercart */
+.cart-block-summary-links ul.links li {
+  border-right: 0;
+}
+
 /* Views slideshow */
 .view-content .skin-default img {}
 .views-slideshow-controls-top,

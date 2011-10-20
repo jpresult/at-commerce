@@ -97,8 +97,6 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
     '#size' => 15,
     '#default_value' => theme_get_setting('toggle_text'),
   );
-  
-  
   // Header layout
   $form['at']['header'] = array(
     '#type' => 'fieldset',

@@ -230,6 +230,21 @@ select {
 .resizable-textarea .grippie {
   display: none;
 }
+fieldset {
+  margin-bottom: 15px;
+  padding: 15px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 2px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: inset 0 1px 2px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: inset 0 1px 2px 2px rgba(0, 0, 0, 0.07);
+}
+fieldset.collapsed {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 
 /* Toggle Draw */
 .region-draw {
