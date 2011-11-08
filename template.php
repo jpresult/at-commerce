@@ -211,10 +211,13 @@ function at_commerce_preprocess_node(&$vars) {
   $vars['content_attributes_array']['class'][] = 'clearfix';
 
   // Theming for node in block
-  if (theme_get_setting('show_slideshow') == TRUE) {
-    if (isset($vars['node']->nodesinblock)) {
+  $vars['node']->nodesinblock = FALSE;
+  if (theme_get_setting('show_slideshow') == 1) {
+    if ($vars['node']->nodesinblock = TRUE) {
       $vars['classes_array'][] = 'flexible-slideshow';
-      $vars['title_attributes_array']['class'][] = 'element-invisible';
+      if (theme_get_setting('hide_slideshow_node_title') == 1) {
+        $vars['title_attributes_array']['class'][] = 'element-invisible';
+      }
     }
   }
 

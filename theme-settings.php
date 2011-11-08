@@ -179,7 +179,19 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
       )
     )
   );
-
+  $form['at']['slideshow']['hide_slideshow_node_title'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide the node title'),
+    '#default_value' => theme_get_setting('hide_slideshow_node_title'),
+    '#description' => t('This will hide the node title using element-invisible.'),
+    '#states' => array (
+      'visible' => array (
+        'input[name="show_slideshow"]' => array (
+          'checked' => TRUE,
+        )
+      )
+    )
+  );
   // fonts
   $form['at']['font'] = array(
     '#type' => 'fieldset',

@@ -5,6 +5,11 @@
   border-right: 0;
 }
 
+/* Views */
+.views-view-grid h1 {
+  font-size: 1.25em;
+}
+  
 /* Views slideshow */
 .view-content .skin-default img {}
 .views-slideshow-controls-top,
