@@ -188,9 +188,6 @@ textarea,
 select {
   border: 1px solid #d5d5d5;
   background-color: rgba(255, 255, 255, 0.6);
-  -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-  -webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
@@ -216,9 +213,12 @@ input[type="submit"] {
   background-image: linear-gradient(-90deg, #e7e7e7, #efefef);
   -ms-filter: "progid:dXImageTransform.Microsoft.gradient(GradientType=0,startcolorstr='#e7e7e7', endcolorstr='#efefef')";
   filter: progid:dXImageTransform.Microsoft.gradient(enabled='true',startcolorstr=#e7e7e7,endcolorstr=#efefef,GradientType=0);
+
 }
 form.commerce-add-to-cart input,
-.add-to-cart #edit-actions input {
+.add-to-cart #edit-actions input,
+input#edit-checkout,
+input#edit-continue {
   border: 1px solid #007100;
   color: #ffffff;
   background-color: #007100;

@@ -3,7 +3,7 @@ fieldset.checkout-buttons {}
 
 fieldset.checkout-buttons .form-button,
 fieldset.checkout-buttons .form-submit {
-  margin-left: 15px;
+  margin-left: 0
 }
 
 fieldset.checkout-buttons .checkout-cancel,
@@ -75,6 +75,7 @@ html.js .page-checkout fieldset.collapsed .fieldset-legend {
 }
 .page-checkout fieldset#edit-buttons {
   border: 0;
+  padding: 10px 0;
   position: relative;
   -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
   -moz-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);

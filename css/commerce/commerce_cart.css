@@ -31,12 +31,12 @@
   font-size: 0.923em;
   margin: 3px 0;
   padding: 1px 7px 3px;
-  -moz-box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 2px 3px rgba(0, 0, 0, 0.15);
 }
 form.commerce-add-to-cart input {
   margin: 0;
+}
+.view-commerce-cart-form .line-item-summary {
+  font-size: 1.538em;
 }
 
 /* Reformat the cart block if in the header region */
