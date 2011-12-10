@@ -121,6 +121,9 @@ h1, h2, h3, .title {
 .nav  ul li a:active {
   color: #fcfcfc;
 }
+.nav ul > li > a:hover,
+.nav ul > li > a:focus,
+.nav  ul > li > a:active,
 .nav ul ul {
   background: #212121;
   opacity: 0.9;

@@ -134,13 +134,15 @@
   </div></div>
 
   <?php if ($page['five_first'] || $page['five_second'] || $page['five_third'] || $page['five_fourth'] || $page['five_fifth']): ?>
-    <div id="quint-panels-wrapper"><div class="container clearfix">
-      <div class="five-5x20 gpanel clearfix">
-        <?php print render($page['five_first']); ?>
-        <?php print render($page['five_second']); ?>
-        <?php print render($page['five_third']); ?>
-        <?php print render($page['five_fourth']); ?>
-        <?php print render($page['five_fifth']); ?>
+    <div id="quint-panels-wrapper"><div class="texture-overlay">
+      <div class="container clearfix">
+        <div class="five-5x20 gpanel clearfix">
+          <?php print render($page['five_first']); ?>
+          <?php print render($page['five_second']); ?>
+          <?php print render($page['five_third']); ?>
+          <?php print render($page['five_fourth']); ?>
+          <?php print render($page['five_fifth']); ?>
+        </div>
       </div>
     </div></div>
   <?php endif; ?>

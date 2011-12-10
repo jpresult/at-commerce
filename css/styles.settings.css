@@ -58,7 +58,8 @@ body.page-taxonomy.tpcc-8 #block-system-main article.article {
 
 /* Draw */
 #draw {
-  display: none ;
+  display: none;
+  width: 100%;
 }
 .hl-l #toggle {
   float: right;
@@ -671,54 +672,54 @@ body.bf-ms,
 
 /* Featured backgrounds */
 #secondary-content-wrapper,
-#secondary-content-wrapper .image-overlay {
+#secondary-content-wrapper .texture-overlay {
   min-height: 25px;
 }
 .opera #secondary-content-wrapper {
   margin-bottom: 15px;
 }
-body.bb-n #secondary-content-wrapper .image-overlay,
-body.bb-n #tertiary-content-wrapper .image-overlay {
+body.bb-n #secondary-content-wrapper .texture-overlay,
+body.bb-n #quint-panels-wrapper .texture-overlay {
   background-image: none;
 }
-body.bb-b #secondary-content-wrapper .image-overlay,
-body.bb-b #tertiary-content-wrapper .image-overlay {
+body.bb-b #secondary-content-wrapper .texture-overlay,
+body.bb-b #quint-panels-wrapper .texture-overlay {
   background-image: url(images/bubbles.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-hs #secondary-content-wrapper .image-overlay,
-body.bb-hs #tertiary-content-wrapper .image-overlay {
+body.bb-hs #secondary-content-wrapper .texture-overlay,
+body.bb-hs #quint-panels-wrapper .texture-overlay {
   background-image: url(images/hoz-stripe.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-dp #secondary-content-wrapper .image-overlay,
-body.bb-dp #tertiary-content-wrapper .image-overlay {
+body.bb-dp #secondary-content-wrapper .texture-overlay,
+body.bb-dp #quint-panels-wrapper .texture-overlay {
   background-image: url(images/diagonal-pattern.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-dlt #secondary-content-wrapper .image-overlay,
-body.bb-dlt #tertiary-content-wrapper .image-overlay {
+body.bb-dlt #secondary-content-wrapper .texture-overlay,
+body.bb-dlt #quint-panels-wrapper .texture-overlay {
   background-image: url(images/diagonal-tight.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-dll #secondary-content-wrapper .image-overlay,
-body.bb-dll #tertiary-content-wrapper .image-overlay {
+body.bb-dll #secondary-content-wrapper .texture-overlay,
+body.bb-dll #quint-panels-wrapper .texture-overlay {
   background-image: url(images/diagonal-loose.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-sd #secondary-content-wrapper .image-overlay,
-body.bb-sd #tertiary-content-wrapper .image-overlay {
+body.bb-sd #secondary-content-wrapper .texture-overlay,
+body.bb-sd #quint-panels-wrapper .texture-overlay {
   background-image: url(images/dots-small.png);
   background-position: 0 0;
   background-repeat: repeat;
 }
-body.bb-bd #secondary-content-wrapper .image-overlay,
-body.bb-bd #tertiary-content-wrapper .image-overlay {
+body.bb-bd #secondary-content-wrapper .texture-overlay,
+body.bb-bd #quint-panels-wrapper .texture-overlay {
   background-image: url(images/dots-big.png);
   background-position: 0 0;
   background-repeat: repeat;
