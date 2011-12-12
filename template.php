@@ -210,10 +210,9 @@ function at_commerce_preprocess_node(&$vars) {
   // Clearfix node content wrapper
   $vars['content_attributes_array']['class'][] = 'clearfix';
 
-  // Theming for node in block
-  $vars['node']->nodesinblock = FALSE;
+  // Add classes for the slideshow
   if (theme_get_setting('show_slideshow') == 1) {
-    if ($vars['node']->nodesinblock = TRUE) {
+    if ($vars['node']->type == 'slideshow') {
       $vars['classes_array'][] = 'flexible-slideshow';
       if (theme_get_setting('hide_slideshow_node_title') == 1) {
         $vars['title_attributes_array']['class'][] = 'element-invisible';

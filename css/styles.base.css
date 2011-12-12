@@ -194,10 +194,13 @@ select {
 .form-textarea-wrapper textarea {
   font-size: 130%;
 }
-.filter-wrapper {
+fieldset.filter-wrapper {
   border: 0;
   margin: 0;
   padding: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .filter-help {
   padding: 10px 0 0 0;
