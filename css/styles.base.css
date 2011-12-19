@@ -595,6 +595,11 @@ ol#crumbs li.crumb {
   margin: 0 0 10px;
 }
 
+/* Forum */
+#forum .description {
+  margin: 0 0 0 33px;
+}
+
 /* Messages */
 #messages-help-wrapper {
   margin-bottom: 25px;

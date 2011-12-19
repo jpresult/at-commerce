@@ -543,8 +543,8 @@ body.bf-ms,
   margin: 0 !important;
   padding: 1px 3px !important;
   position: absolute;
-  right: 10px;
-  top: 1.25em;
+  right: auto;
+  top: 1.28em;
 }
 .webkit .lb-h input.form-submit {
   right: -28px;
