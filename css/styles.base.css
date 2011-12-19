@@ -356,34 +356,6 @@ input#edit-cancel {
   text-transform: uppercase;
   font-weight: 700;
 }
-.nav ul li a.active,
-.nav ul li.active-trail a {}
-
-.region-header .block  {
-  margin-top: 15px;
-}
-
-/* Superfish Skin */
-.sf-menu a {
-  border: 0;
-}
-.sf-menu li:hover ul,
-.sf-menu li.sfHover ul {
-  top: 3em;
-  margin: 0 0 0 10px;
-  padding: 0;
-  line-height: 2em;
-}
-.sf-menu li:hover ul ul,
-.sf-menu li.sfHover ul ul{
-  top: 0;
-  margin: 0;
-  line-height: 2em;
-}
-.sf-menu li ul li,
-.sf-menu li ul a {
-  line-height: 2em;
-}
 
 /* Wrapper white space */
 #secondary-content-wrapper .texture-overlay {
