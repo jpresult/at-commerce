@@ -165,10 +165,10 @@ function at_commerce_preprocess_html(&$vars) {
       )
     );
   }
-  
+
   // Draw stuff
   drupal_add_js($path_to_theme . '/js/draw.js');
-  
+
 }
 
 /**
@@ -194,7 +194,7 @@ function at_commerce_process_page(&$vars) {
   $branding_classes[] = !$vars['hide_site_name'] ? 'with-site-name' : 'site-name-hidden';
   $branding_classes[] = $vars['site_slogan'] ? 'with-site-slogan' : 'no-slogan';
   $vars['branding_classes'] = implode(' ', $branding_classes);
-  
+
   // Draw toggle text
   $toggle_text = theme_get_setting('toggle_text') ? theme_get_setting('toggle_text') : t('More info');
   $vars['draw_link'] = '<a class="draw-toggle" href="#">' . check_plain($toggle_text) . '</a>';
@@ -219,7 +219,7 @@ function at_commerce_preprocess_node(&$vars) {
       }
     }
   }
-  
+
   // Content grids - nuke links off teasers if in a content_display
   if ($vars['view_mode'] == 'teaser') {
     $show_frontpage_grid = theme_get_setting('content_display_grids_frontpage') == 1 ? TRUE : FALSE;
@@ -280,86 +280,114 @@ function at_commerce_preprocess_field(&$vars) {
  * Implements hook_css_alter().
  */
 function at_commerce_css_alter(&$css) {
-  // Replace all Commerce module CSS files with our own copies
-  // for total control over all styles
+  // Replace all Commerce module CSS files with our own for total control over all styles.
+  // Commerce module uses the BAT CSS file naming convention (base, admin, theme).
+  
   $path = drupal_get_path('theme', 'at_commerce');
+
   // cart
-  $cart_css = drupal_get_path('module', 'commerce_cart') . '/theme/commerce_cart.theme.css';
-  if (isset($css[$cart_css])) {
-    $css[$cart_css]['data'] = $path . '/css/commerce/commerce_cart.theme.css';
+  $cart_theme = drupal_get_path('module', 'commerce_cart') . '/theme/commerce_cart.theme.css';
+  if (isset($css[$cart_theme])) {
+    $css[$cart_theme]['data'] = $path . '/css/commerce/commerce_cart.theme.css';
+    $css[$cart_theme]['group'] = 1;
   }
+
   // checkout
-  $checkout_css = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.base.css';
-  if (isset($css[$checkout_css])) {
-    $css[$checkout_css]['data'] = $path . '/css/commerce/commerce_checkout.base.css';
+  $checkout_base  = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.base.css';
+  $checkout_admin = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.admin.css';
+  $checkout_theme = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.theme.css';
+  if (isset($css[$checkout_base])) {
+    $css[$checkout_base]['data'] = $path . '/css/commerce/commerce_checkout.base.css';
+    $css[$checkout_base]['group'] = 1;
   }
-  $checkout_css = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.theme.css';
-  if (isset($css[$checkout_css])) {
-    $css[$checkout_css]['data'] = $path . '/css/commerce/commerce_checkout.theme.css';
+  if (isset($css[$checkout_admin])) {
+    $css[$checkout_admin]['data'] = $path . '/css/commerce/commerce_checkout.admin.css';
+    $css[$checkout_admin]['group'] = 1;
   }
-  $checkout_admin_css = drupal_get_path('module', 'commerce_checkout') . '/theme/commerce_checkout.admin.css';
-  if (isset($css[$checkout_admin_css])) {
-    $css[$checkout_admin_css]['data'] = $path . '/css/commerce/commerce_checkout.admin.css';
+  if (isset($css[$checkout_theme])) {
+    $css[$checkout_theme]['data'] = $path . '/css/commerce/commerce_checkout.theme.css';
+    $css[$checkout_theme]['group'] = 1;
   }
+
   // customer
-  $customer_css = drupal_get_path('module', 'commerce_customer') . '/theme/commerce_customer.admin.css';
-  if (isset($css[$customer_css])) {
-    $css[$customer_css]['data'] = $path . '/css/commerce/commerce_customer.admin.css';
+  $customer_admin = drupal_get_path('module', 'commerce_customer') . '/theme/commerce_customer.admin.css';
+  if (isset($css[$customer_admin])) {
+    $css[$customer_admin]['data'] = $path . '/css/commerce/commerce_customer.admin.css';
+    $css[$customer_admin]['group'] = 1;
   }
+
   // file (contrib)
-  $file_css = drupal_get_path('module', 'commerce_file') . '/theme/commerce_file.forms.css';
-  if (isset($css[$file_css])) {
-    $css[$file_css]['data'] = $path . '/css/commerce/commerce_file.forms.css';
+  $file_forms = drupal_get_path('module', 'commerce_file') . '/theme/commerce_file.forms.css';
+  if (isset($css[$file_forms])) {
+    $css[$file_forms]['data'] = $path . '/css/commerce/commerce_file.forms.css';
+    $css[$file_forms]['group'] = 1;
   }
+
   // line items
-  $line_item_summary_css = drupal_get_path('module', 'commerce_line_item') . '/theme/commerce_line_item.theme.css';
-  if (isset($css[$line_item_summary_css])) {
-    $css[$line_item_summary_css]['data'] = $path . '/css/commerce/commerce_line_item.theme.css';
+  $line_item_admin = drupal_get_path('module', 'commerce_line_item') . '/theme/commerce_line_item.admin.css';
+  $line_item_theme = drupal_get_path('module', 'commerce_line_item') . '/theme/commerce_line_item.theme.css';
+  if (isset($css[$line_item_admin])) {
+    $css[$line_item_admin]['data'] = $path . '/css/commerce/commerce_line_item.admin.css';
+    $css[$line_item_admin]['group'] = 1;
   }
-  $line_item_ui_types_css = drupal_get_path('module', 'commerce_line_item') . '/theme/commerce_line_item.admin.css';
-  if (isset($css[$line_item_ui_types_css])) {
-    $css[$line_item_ui_types_css]['data'] = $path . '/css/commerce/commerce_line_item.admin.css';
+  if (isset($css[$line_item_theme])) {
+    $css[$line_item_theme]['data'] = $path . '/css/commerce/commerce_line_item.theme.css';
+    $css[$line_item_theme]['group'] = 1;
   }
+
   // order
-  $order_css = drupal_get_path('module', 'commerce_order') . '/theme/commerce_order.theme.css';
-  if (isset($css[$order_css])) {
-    $css[$order_css]['data'] = $path . '/css/commerce/commerce_order.theme.css';
+  $order_admin = drupal_get_path('module', 'commerce_order') . '/theme/commerce_order.admin.css';
+  $order_theme = drupal_get_path('module', 'commerce_order') . '/theme/commerce_order.theme.css';
+  if (isset($css[$order_admin])) {
+    $css[$order_admin]['data'] = $path . '/css/commerce/commerce_order.admin.css';
+    $css[$order_admin]['group'] = 1;
   }
-  $order_views_css = drupal_get_path('module', 'commerce_order') . '/theme/commerce_order.admin.css';
-  if (isset($css[$order_views_css])) {
-    $css[$order_views_css]['data'] = $path . '/css/commerce/commerce_order.admin.css';
+  if (isset($css[$order_theme])) {
+    $css[$order_theme]['data'] = $path . '/css/commerce/commerce_order.theme.css';
+    $css[$order_theme]['group'] = 1;
   }
+
   // payment
-  $payment_css = drupal_get_path('module', 'commerce_payment') . '/theme/commerce_payment.admin.css';
-  if (isset($css[$payment_css])) {
-    $css[$payment_css]['data'] = $path . '/css/commerce/commerce_payment.admin.css';
+  $payment_admin = drupal_get_path('module', 'commerce_payment') . '/theme/commerce_payment.admin.css';
+  $payment_theme = drupal_get_path('module', 'commerce_payment') . '/theme/commerce_payment.theme.css';
+  if (isset($css[$payment_admin])) {
+    $css[$payment_admin]['data'] = $path . '/css/commerce/commerce_payment.admin.css';
+    $css[$payment_admin]['group'] = 1;
   }
-  $payment_css = drupal_get_path('module', 'commerce_payment') . '/theme/commerce_payment.theme.css';
-  if (isset($css[$payment_css])) {
-    $css[$payment_css]['data'] = $path . '/css/commerce/commerce_payment.theme.css';
+  if (isset($css[$payment_theme])) {
+    $css[$payment_theme]['data'] = $path . '/css/commerce/commerce_payment.theme.css';
+    $css[$payment_theme]['group'] = 1;
   }
+
   // price
-  $price_css = drupal_get_path('module', 'commerce_price') . '/theme/commerce_price.theme.css';
-  if (isset($css[$price_css])) {
-    $css[$price_css]['data'] = $path . '/css/commerce/commerce_price.theme.css';
+  $price_theme = drupal_get_path('module', 'commerce_price') . '/theme/commerce_price.theme.css';
+  if (isset($css[$price_theme])) {
+    $css[$price_theme]['data'] = $path . '/css/commerce/commerce_price.theme.css';
+    $css[$price_theme]['group'] = 1;
   }
+
   // product
-  $product_css = drupal_get_path('module', 'commerce_product') . '/theme/commerce_product.theme.css';
-  if (isset($css[$product_css])) {
-    $css[$product_css]['data'] = $path . '/css/commerce/commerce_product.theme.css';
+  $product_admin = drupal_get_path('module', 'commerce_product') . '/theme/commerce_product.admin.css';
+  $product_theme = drupal_get_path('module', 'commerce_product') . '/theme/commerce_product.theme.css';
+  if (isset($css[$product_admin])) {
+    $css[$product_admin]['data'] = $path . '/css/commerce/commerce_product.admin.css';
+    $css[$product_admin]['group'] = 1;
   }
-  $product_ui_types_css = drupal_get_path('module', 'commerce_product') . '/theme/commerce_product.admin.css';
-  if (isset($css[$product_ui_types_css])) {
-    $css[$product_ui_types_css]['data'] = $path . '/css/commerce/commerce_product.admin.css';
+  if (isset($css[$product_theme])) {
+    $css[$product_theme]['data'] = $path . '/css/commerce/commerce_product.theme.css';
+    $css[$product_theme]['group'] = 1;
   }
+
   // tax
-  $tax_css = drupal_get_path('module', 'commerce_tax') . '/theme/commerce_tax.theme.css';
-  if (isset($css[$tax_css])) {
-    $css[$tax_css]['data'] = $path . '/css/commerce/commerce_tax.theme.css';
+  $tax_admin = drupal_get_path('module', 'commerce_tax') . '/theme/commerce_tax.admin.css';
+  $tax_theme = drupal_get_path('module', 'commerce_tax') . '/theme/commerce_tax.theme.css';
+  if (isset($css[$tax_admin])) {
+    $css[$tax_admin]['data'] = $path . '/css/commerce/commerce_tax.admin.css';
+    $css[$tax_admin]['group'] = 1;
   }
-  $tax_css = drupal_get_path('module', 'commerce_tax') . '/theme/commerce_tax.admin.css';
-  if (isset($css[$tax_css])) {
-    $css[$tax_css]['data'] = $path . '/css/commerce/commerce_tax.admin.css';
+  if (isset($css[$tax_theme])) {
+    $css[$tax_theme]['data'] = $path . '/css/commerce/commerce_tax.theme.css';
+    $css[$tax_theme]['group'] = 1;
   }
 }
 
