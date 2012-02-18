@@ -95,17 +95,6 @@ function at_commerce_preprocess_html(&$vars) {
     }
   }
 
-  // Add Noggin module settings extra classes, not all designs can support header images
-  if (module_exists('noggin')) {
-    if (variable_get('noggin:use_header', FALSE)) {
-      $va = theme_get_setting('noggin_image_vertical_alignment');
-      $ha = theme_get_setting('noggin_image_horizontal_alignment');
-      $vars['classes_array'][] = 'ni-a-' . $va . $ha;
-      $vars['classes_array'][] = theme_get_setting('noggin_image_repeat');
-      $vars['classes_array'][] = theme_get_setting('noggin_image_width');
-    }
-  }
-
   // Special case for PIE htc rounded corners, not all themes include this
   if (theme_get_setting('ie_corners') == 1) {
     drupal_add_css($path_to_theme . '/css/ie-htc.css', array(

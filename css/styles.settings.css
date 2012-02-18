@@ -730,25 +730,3 @@ body.bb-bd #quint-panels-wrapper .texture-overlay {
   background-repeat: repeat;
   min-height: 40px;
 }
-/* Noggin header image extra settings */
-body.ni-a-tl div#header-wrapper {background-position: top left;}
-body.ni-a-tr div#header-wrapper {background-position: top right;}
-body.ni-a-tc div#header-wrapper {background-position: top center;}
-body.ni-a-ml div#header-wrapper {background-position: center left;}
-body.ni-a-mr div#header-wrapper {background-position: center right;}
-body.ni-a-mc div#header-wrapper {background-position: center center;}
-body.ni-a-bl div#header-wrapper {background-position: bottom left;}
-body.ni-a-br div#header-wrapper {background-position: bottom center;}
-body.ni-a-bc div#header-wrapper {background-position: bottom right;}
-body.ni-r-r   div#header-wrapper {background-repeat: repeat;}
-body.ni-r-rx div#header-wrapper {background-repeat: repeat-x;}
-body.ni-r-ry div#header-wrapper {background-repeat: repeat-y;}
-body.ni-r-nr div#header-wrapper {background-repeat: no-repeat;}
-body.ni-w-ftw div#header-wrapper {
-  -o-background-size: 100% auto;
-  -webkit-background-size: 100% auto;
-  -khtml-background-size: 100% auto;
-  -moz-background-size: 100% auto;
-  background-size: 100% auto;
-  background-origin: border-box;
-}

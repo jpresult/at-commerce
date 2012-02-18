@@ -1,15 +1,6 @@
 <?php
 // Commerce
-
 include_once(drupal_get_path('theme', 'adaptivetheme') . '/inc/google.web.fonts.inc');
-
-// Override noggin selector
-if (module_exists('noggin')) {
-  $default_var = variable_get('noggin:header_selector', 'div#header');
-  if ($default_var == 'div#header') {
-    variable_set('noggin:header_selector', 'div#header-wrapper');
-  }
-}
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -20,7 +11,6 @@ if (module_exists('noggin')) {
  *   A keyed array containing the current state of the form.
  */
 function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
-
   // Content displays
   $form['at']['content_display'] = array(
     '#type' => 'fieldset',
@@ -1106,62 +1096,4 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   $form['logo']['#collapsed'] = TRUE;
   $form['favicon']['#collapsible'] = TRUE;
   $form['favicon']['#collapsed'] = TRUE;
-  // Noggin
-  if (module_exists('noggin')) {
-    // Rewrite the selector to suit Adaptivetheme and HTML5
-    $form['noggin']['settings']['header_selector']['#default_value'] = variable_get('noggin:header_selector', 'header#header');
-    // Extra fields for noggin settings
-    $form['atnoggin'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Header Image Extra Styles'),
-      '#description' => t('These settings extend the Noggin module Header Image Settings.'),
-      '#collapsible' => FALSE,
-      '#collapsed' => FALSE,
-      '#states' => array(
-        'invisible' => array(
-          'input[name="use_header"]' => array('checked' => FALSE),
-        ),
-      ),
-    );
-    $form['atnoggin']['noggin_image_vertical_alignment'] = array(
-      '#type' => 'radios',
-      '#title' => t('Image alignment - vertical'),
-      '#default_value' => theme_get_setting('noggin_image_vertical_alignment'),
-      '#options' => array(
-        't' => t('Top'),
-        'c' => t('Middle'),
-        'b' => t('Bottom'),
-      ),
-    );
-    $form['atnoggin']['noggin_image_horizontal_alignment'] = array(
-      '#type' => 'radios',
-      '#title' => t('Image alignment - horizontal'),
-      '#default_value' => theme_get_setting('noggin_image_horizontal_alignment'),
-      '#options' => array(
-        'l' => t('Left'),
-        'r' => t('Right'),
-        'c' => t('Center'),
-      ),
-    );
-    $form['atnoggin']['noggin_image_repeat'] = array(
-      '#type' => 'radios',
-      '#title' => t('Image repeat'),
-      '#default_value' => theme_get_setting('noggin_image_repeat'),
-      '#options' => array(
-        'ni-r-r' => t('Repeat'),
-        'ni-r-rx' => t('Horizontal repeat'),
-        'ni-r-ry' => t('Vertical repeat'),
-        'ni-r-nr' => t('No repeat'),
-      ),
-    );
-    $form['atnoggin']['noggin_image_width'] = array(
-      '#type' => 'radios',
-      '#title' => t('Image width'),
-      '#default_value' => theme_get_setting('noggin_image_width'),
-      '#options' => array(
-        'ni-w-a' => t('Auto <span class="description">- use actual image dimensions</span>'),
-        'ni-w-ftw' => t('100% width <span class="description"> - stretch to fit, this only works in modern CSS3 capable browsers</span>'),
-      ),
-    );
-  }
 }
