@@ -1,6 +1,7 @@
 /* Base */
 html {
   font-size: 81.3%; /* 13px base font size */
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; /* Fall back font for offline viewing */
 }
 body {
   line-height: 1.5;
@@ -534,6 +535,17 @@ article .comment-content {
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Signatures */
+.user-signature p {
+  font-style: italic;
+  text-align: right;
+  margin: 0;
+}
+.user-signature p:before,
+.user-signature p:after {
+  content: '"';
 }
 
 /* Blocks */

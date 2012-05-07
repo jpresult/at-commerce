@@ -997,7 +997,7 @@ function at_commerce_form_system_theme_settings_alter(&$form, &$form_state)  {
   $form['at']['pagestyles']['textures'] = array(
     '#type' => 'fieldset',
     '#title' => t('Textures'),
-    '#description' => t('<h3>Body Textures</h3><p>This setting adds a texture over the main background color - the darker the background the more these stand out, on light backgrounds the effect is subtle.</p>'),
+    '#description' => t('<h3>Body Textures</h3><p>This setting adds a texture over the Featured Panels and the Bottom Panels background colors - the darker the background the more these stand out, on light backgrounds the effect is subtle.</p>'),
   );
   $form['at']['pagestyles']['textures']['body_background'] = array(
     '#type' => 'select',

@@ -23,7 +23,7 @@
       ?>
       <?php if ($signature): ?>
         <aside class="user-signature clearfix">
-          <?php print $signature;  ?>
+          <?php print $signature; ?>
         </aside>
       <?php endif; ?>
     </div>
