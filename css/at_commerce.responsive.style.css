@@ -50,7 +50,7 @@
     display: block;
     float: none;
     margin: 0;
-    overflow: hidden;
+    /* JPR overflow: hidden; */
     border-bottom: 1px solid rgba(255,255,255,0.5);
   }
   #menu-bar .menu-wrapper ul > li > a {
@@ -68,7 +68,7 @@
     padding: 2px 0;
   }
   #menu-bar .menu-wrapper ul ul {
-    display: none !important;
+    display: none; /* JPR !important */
   }
   .region-header .block {
     overflow: hidden;
@@ -179,14 +179,14 @@
     float: none;
   }
   #menu-bar .menu-wrapper ul ul {
-    display: none !important;
+    display: none; /* JPR !important */
   }
   #menu-bar .menu-wrapper > ul,
   #menu-bar .menu-wrapper > ul > li {
     display: block;
     float: none;
     margin: 0;
-    overflow: hidden;
+    /* JPR overflow: hidden;*/
     border-bottom: 1px solid rgba(255,255,255,0.5);
   }
   #menu-bar .menu-wrapper ul > li > a {
