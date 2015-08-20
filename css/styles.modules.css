@@ -9,7 +9,7 @@
 .views-view-grid h1 {
   font-size: 1.25em;
 }
-  
+
 /* Views slideshow */
 .view-content .skin-default img {}
 .views-slideshow-controls-top,
@@ -61,7 +61,7 @@
 .block-quicktabs .block-content-inner,
 .sidebar .block-quicktabs .block-content-inner {
 }
-.block-quicktabs ul.quicktabs-tabs {;
+.block-quicktabs ul.quicktabs-tabs {
 }
 .block-quicktabs ul.quicktabs-tabs li{
 }
